@@ -4,6 +4,7 @@
 
 const fv = new FormationVisualizer()
 fv.drawPitch()
+fv.drawInfoBox("spurs", "spurs 2")
 fv.addPlayerTeam1("GK", "Hugo Lloris" , 1)
 fv.addPlayerTeam1("LB", "Danny Rose" , 3)
 fv.addPlayerTeam1("LCB", "Toby Alderweireld" , 4)
@@ -43,3 +44,8 @@ fv.addPlayerTeam2("RW", "Steven Bergwijn" , 23)
 fv.addPlayerTeam2("LST", "Carlos Vinicius" , 45)
 fv.addPlayerTeam2("RST", "Emmanuel Adebayor" , 22)
 fv.addPlayerTeam2("CF", "Harry Kane" , 10)
+
+
+
+fv.showPlayerStatsTeam1(10)
+fv.showPlayerStatsTeam2(1)

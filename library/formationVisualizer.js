@@ -2,8 +2,9 @@
 
 function  FormationVisualizer() {
     this.pitch = null
-    this.team1players = []
-    this.team2players = []
+    this.team1players = {}
+    this.team2players = {}
+    this.infoBox = null
 }
 
 FormationVisualizer.prototype = {
@@ -193,12 +194,13 @@ FormationVisualizer.prototype = {
             player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 370px; background-color: Aqua; position: absolute;"
         }
 
+        // player.addEventListener("click", this.showPlayerStatsTeam1(number))
         player.textContent = number
         newDiv.append(player)
         const pitch = this.pitch
         pitch.append(newDiv)
 
-        this.team1players.push(player)
+        this.team1players[number] = this.createPlayer(position, name, number)
     },
 
     addPlayerTeam2: function (position, name, number){
@@ -246,15 +248,179 @@ FormationVisualizer.prototype = {
         }
 
         player.textContent = number
-        const playerName = document.createTextNode(name)
-        const playerNameDiv = document.createElement('div')
-        playerNameDiv.style = "position: absolute;"
-        playerNameDiv.append(playerName)
+        this.team2players[number] = this.createPlayer(position, name, number)
+        player.addEventListener("click", function() {showPlayerStatsTeam2(number);});
+        // const playerName = document.createTextNode(name)
+        // const playerNameDiv = document.createElement('div')
+        // playerNameDiv.style = "position: absolute;"
+        // playerNameDiv.append(playerName)
         newDiv.append(player)
-        newDiv.append(playerNameDiv)
+        // newDiv.append(playerNameDiv)
         const pitch = this.pitch
         pitch.append(newDiv)
+    },
 
-        this.team1players.push(player)
+    drawInfoBox(team1, team2){
+        const infoBox = document.createElement('div')
+        infoBox.style = "width: 802px; height: 300px; border-width: 2px; border-style: solid; border-color: black; margin-left: 10px;"
+        this.infoBox = infoBox
+
+        const team1NameDiv = document.createElement('div')
+        const team1Text = document.createTextNode(team1)
+        const team2NameDiv = document.createElement('div')
+        const team2Text = document.createTextNode(team2)
+        team2NameDiv.append(team2Text)
+        team1NameDiv.append(team1Text)
+        team1NameDiv.style = "margin-left: 50px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        team2NameDiv.style = "margin-left: 401px; width: 401px: height: 20px; text-align: right; position: absolute;"
+
+        infoBox.append(team1NameDiv)
+        infoBox.append(team2NameDiv)
+
+        const body = document.querySelector("body")
+        body.append(infoBox)
+    },
+
+    createPlayer(position, name, number){
+        return {
+            position: position,
+            name: name,
+            number: number,
+            goals: 0,
+            matches: 0,
+            shots: 0,
+            saves: 0,
+            foulsCommited: 0,
+            yellowCards: 0,
+            redCards: 0,
+            xGoals: 0,
+            xGoalsAgainst: 0,
+            rating: 0
+        }
+    },
+
+    showPlayerStatsTeam1(number){
+        const nameDiv = document.createElement('div')
+        const nameText = document.createTextNode("Name: " + this.team1players[number].name)
+        nameDiv.style = "margin-left: 50px; margin-top: 20px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        nameDiv.append(nameText)
+        this.infoBox.append(nameDiv)
+
+        const numberDiv = document.createElement('div')
+        const numberText = document.createTextNode("Jersey number: " + this.team1players[number].number)
+        numberDiv.style = "margin-left: 50px; margin-top: 40px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        numberDiv.append(numberText)
+        this.infoBox.append(numberDiv)
+
+        const goalsDiv = document.createElement('div')
+        const goalsText = document.createTextNode("Goals: " + this.team1players[number].goals)
+        goalsDiv.style = "margin-left: 50px; margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        goalsDiv.append(goalsText)
+        this.infoBox.append(goalsDiv)
+
+        const shotsDiv = document.createElement('div')
+        const shotsText = document.createTextNode("Shots: " + this.team1players[number].shots)
+        shotsDiv.style = "margin-left: 50px; margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        shotsDiv.append(shotsText)
+        this.infoBox.append(shotsDiv)
+
+        const foulsDiv = document.createElement('div')
+        const foulsText = document.createTextNode("Fouls Committed: " + this.team1players[number].foulsCommited)
+        foulsDiv.style = "margin-left: 50px; margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        foulsDiv.append(foulsText)
+        this.infoBox.append(foulsDiv)
+
+        const yellowDiv = document.createElement('div')
+        const yellowText = document.createTextNode("Yellow Cards: " + this.team1players[number].yellowCards)
+        yellowDiv.style = "margin-left: 50px; margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        yellowDiv.append(yellowText)
+        this.infoBox.append(yellowDiv)
+
+        const redDiv = document.createElement('div')
+        const redText = document.createTextNode("Red Cards: " + this.team1players[number].redCards)
+        redDiv.style = "margin-left: 50px; margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        redDiv.append(redText)
+        this.infoBox.append(redDiv)
+
+        const xGoalsDiv = document.createElement('div')
+        const xGoalsText = document.createTextNode("Expected Goals: " + this.team1players[number].xGoals)
+        xGoalsDiv.style = "margin-left: 50px; margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        xGoalsDiv.append(xGoalsText)
+        this.infoBox.append(xGoalsDiv)
+
+        const ratingDiv = document.createElement('div')
+        const ratingText = document.createTextNode("Player rating: " + this.team1players[number].rating)
+        ratingDiv.style = "margin-left: 50px; margin-top: 180px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        ratingDiv.append(ratingText)
+        this.infoBox.append(ratingDiv)
+    },
+
+    showPlayerStatsTeam2(number){
+        const nameDiv = document.createElement('div')
+        const nameText = document.createTextNode("Name: " + this.team2players[number].name)
+        nameDiv.style = "margin-left: 401px; margin-top: 20px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        nameDiv.append(nameText)
+        this.infoBox.append(nameDiv)
+
+        const numberDiv = document.createElement('div')
+        const numberText = document.createTextNode("Jersey number: " + this.team2players[number].number)
+        numberDiv.style = "margin-left: 401px; margin-top: 40px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        numberDiv.append(numberText)
+        this.infoBox.append(numberDiv)
+
+        const goalsDiv = document.createElement('div')
+        const goalsText = document.createTextNode("Goals: " + this.team2players[number].goals)
+        goalsDiv.style = "margin-left: 401px; margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        goalsDiv.append(goalsText)
+        this.infoBox.append(goalsDiv)
+
+        const shotsDiv = document.createElement('div')
+        const shotsText = document.createTextNode("Shots: " + this.team2players[number].shots)
+        shotsDiv.style = "margin-left: 401px; margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        shotsDiv.append(shotsText)
+        this.infoBox.append(shotsDiv)
+
+        const foulsDiv = document.createElement('div')
+        const foulsText = document.createTextNode("Fouls Committed: " + this.team2players[number].foulsCommited)
+        foulsDiv.style = "margin-left: 401px; margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        foulsDiv.append(foulsText)
+        this.infoBox.append(foulsDiv)
+
+        const yellowDiv = document.createElement('div')
+        const yellowText = document.createTextNode("Yellow Cards: " + this.team2players[number].yellowCards)
+        yellowDiv.style = "margin-left: 401px; margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        yellowDiv.append(yellowText)
+        this.infoBox.append(yellowDiv)
+
+        const redDiv = document.createElement('div')
+        const redText = document.createTextNode("Red Cards: " + this.team2players[number].redCards)
+        redDiv.style = "margin-left: 401px; margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        redDiv.append(redText)
+        this.infoBox.append(redDiv)
+
+        const xGoalsDiv = document.createElement('div')
+        const xGoalsText = document.createTextNode("Expected Goals: " + this.team2players[number].xGoals)
+        xGoalsDiv.style = "margin-left: 401px; margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        xGoalsDiv.append(xGoalsText)
+        this.infoBox.append(xGoalsDiv)
+
+        const ratingDiv = document.createElement('div')
+        const ratingText = document.createTextNode("Player rating: " + this.team2players[number].rating)
+        ratingDiv.style = "margin-left: 401px; margin-top: 180px; width: 401px: height: 20px; text-align: left; position: absolute;"
+        ratingDiv.append(ratingText)
+        this.infoBox.append(ratingDiv)
+    },
+
+    setTeam1goals(playerNumber, numGoals) {
+        this.team1players[number].goals = numGoals
+    },
+    setTeam2goals(playerNumber, numGoals) {
+        this.team1players[number].goals = numGoals
+    },
+    setTeam1matches(playerNumber, numMatches) {
+        this.team1players[number].matches = numMatches
+    },
+    setTeam2matches(playerNumber, numMatches) {
+        this.team1players[number].matches = numMatches
     }
 }
