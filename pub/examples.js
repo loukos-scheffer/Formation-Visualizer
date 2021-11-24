@@ -2,61 +2,73 @@
 //CSC309 project demonstration page
 "use strict";
 
-const fv = new FormationVisualizer()
-fv.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team")
-fv.addPlayerTeam1("GK", "Hugo Lloris" , 1, true)
-fv.setTeam1PlayerStats(1, 0, 38, 15, 59, 0, 32, 0, 10, 44, 2, 1, 1)
-fv.addPlayerTeam1("LB", "Danny Rose" , 3, true)
-fv.setTeam1PlayerStats(3, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("LCB", "Toby Alderweireld" , 4, true)
-fv.setTeam1PlayerStats(4, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("RCB", "Jan Vertonghen" , 5, true)
-fv.setTeam1PlayerStats(5, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("RB", "Kyle Walker" , 2, true)
-fv.setTeam1PlayerStats(2, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("CAM", "Christian Eriksen" , 23, true)
-fv.setTeam1PlayerStats(23, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("LCM", "Moussa Sissoko" , 19, true)
-fv.setTeam1PlayerStats(19, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("RCM", "Mousa Dembele" , 18, true)
-fv.setTeam1PlayerStats(18, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("LW", "Bryan Gil" , 11, true)
-fv.setTeam1PlayerStats(11, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("RW", "Steven Bergwijn" , 24, true)
-fv.setTeam1PlayerStats(24, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-fv.addPlayerTeam1("CF", "Harry Kane" , 10, true)
-fv.setTeam1PlayerStats(10, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 7)
-
-fv.addPlayerTeam2("GK", "Milan Borjan" , 18, true)
-fv.setTeam2PlayerStats(18, 0, 38, 15, 59, 0, 32, 0, 10, 44, 2, 1, 1)
-fv.addPlayerTeam2("LCB", "Kamal Miller" , 4, true)
-fv.setTeam2PlayerStats(4, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("CCB", "Steven Vitoria" , 5, true)
-fv.setTeam2PlayerStats(5, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("RCB", "Alastair Johnston" , 2, true)
-fv.setTeam2PlayerStats(2, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("LWB", "Richie Laryea" , 22, true)
-fv.setTeam2PlayerStats(22, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("RWB", "Sam Adekugbe" , 3, true)
-fv.setTeam2PlayerStats(3, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("LCM", "Atiba Hutchinson", 13, true)
-fv.setTeam2PlayerStats(13, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("RCM", "Stephen Eustaquio" , 7, true)
-fv.setTeam2PlayerStats(7, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("LW", "Alphonso Davies", 19, true)
-fv.setTeam2PlayerStats(19, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("RW", "Tajon Buchanan", 11, true)
-fv.setTeam2PlayerStats(11, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-fv.addPlayerTeam2("CF", "Jonathan David", 20, true)
-fv.setTeam2PlayerStats(20, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 3)
-
-
-fv.showPlayerStatsTeam1(10, false)
-fv.showPlayerStatsTeam2(18, false)
-
-const demo2text = document.createTextNode('This is a second demonstration of how the library could be used as part of a coaching or team organization app:')
 const body = document.querySelector("body")
+
+
+const fv2 = new FormationVisualizer()
+const demo2text = document.createTextNode('This is a demonstration of how the library could be used in a post-match ' +
+    'configuration where statistics are being shown for a single match including match ratings. To convert such to a ' +
+    'pre-match scenario the developer would need to input season stats instead of match stats and set the ratingsEnabled' +
+    ' boolean to false.')
 body.append(demo2text)
+
+fv2.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team")
+fv2.addPlayerTeam1("GK", "Hugo Lloris" , 1, true)
+fv2.setTeam1PlayerStats(1, 0, 38, 15, 59, 0, 32, 0, 10, 44, 2, 0, 0)
+fv2.addPlayerTeam1("LB", "Danny Rose" , 3, true)
+fv2.setTeam1PlayerStats(3, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("LCB", "Toby Alderweireld" , 4, true)
+fv2.setTeam1PlayerStats(4, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 1)
+fv2.addPlayerTeam1("RCB", "Jan Vertonghen" , 5, true)
+fv2.setTeam1PlayerStats(5, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("RB", "Kyle Walker" , 2, true)
+fv2.setTeam1PlayerStats(2, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 1)
+fv2.addPlayerTeam1("CAM", "Christian Eriksen" , 23, true)
+fv2.setTeam1PlayerStats(23, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 1, 0)
+fv2.addPlayerTeam1("LCM", "Moussa Sissoko" , 19, true)
+fv2.setTeam1PlayerStats(19, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("RCM", "Mousa Dembele" , 18, true)
+fv2.setTeam1PlayerStats(18, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("LW", "Bryan Gil" , 11, true)
+fv2.setTeam1PlayerStats(11, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("RW", "Steven Bergwijn" , 24, true)
+fv2.setTeam1PlayerStats(24, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+fv2.addPlayerTeam1("CF", "Harry Kane" , 10, true)
+fv2.setTeam1PlayerStats(10, 2, 38, 0, 0, 12, 0, 1.5, 8, 0, 102, 0, 0)
+
+fv2.addPlayerTeam2("GK", "Milan Borjan" , 18, true)
+fv2.setTeam2PlayerStats(18, 0, 38, 15, 59, 0, 32, 0, 10, 44, 2, 0, 0)
+fv2.addPlayerTeam2("LCB", "Kamal Miller" , 4, true)
+fv2.setTeam2PlayerStats(4, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("CCB", "Steven Vitoria" , 5, true)
+fv2.setTeam2PlayerStats(5, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("RCB", "Alastair Johnston" , 2, true)
+fv2.setTeam2PlayerStats(2, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("LWB", "Richie Laryea" , 22, true)
+fv2.setTeam2PlayerStats(22, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("RWB", "Sam Adekugbe" , 3, true)
+fv2.setTeam2PlayerStats(3, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 1)
+fv2.addPlayerTeam2("LCM", "Atiba Hutchinson", 13, true)
+fv2.setTeam2PlayerStats(13, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("RCM", "Stephen Eustaquio" , 7, true)
+fv2.setTeam2PlayerStats(7, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("LW", "Alphonso Davies", 19, true)
+fv2.setTeam2PlayerStats(19, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+fv2.addPlayerTeam2("RW", "Tajon Buchanan", 11, true)
+fv2.setTeam2PlayerStats(11, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 1)
+fv2.addPlayerTeam2("CF", "Jonathan David", 20, true)
+fv2.setTeam2PlayerStats(20, 2, 12, 0, 0, 8, 0, 1.1, 7, 0, 52, 0, 0)
+
+
+fv2.showPlayerStatsTeam1(10, false)
+fv2.showPlayerStatsTeam2(18, false)
+
+const fv3 = new FormationVisualizer()
+const demo3text = document.createTextNode('This is a second demonstration of how the library could be used as part of a' +
+    ' coaching or team organization app. A developer could allow users to setup in a variety of formations and player ' +
+    'arrangements. For this demo the infobox is turned off, but it could be turned on depending upon the team usage.')
+body.append(demo3text)
+
 let players = [
     {name: "John Smith", number: 1},
     {name: "Jon Smith", number: 2},
@@ -88,7 +100,7 @@ for (let i = 0; i < players.length; i++){
 }
 teamDemo.append(playerSelector)
 
-const positions = fv.getPositions()
+const positions = fv3.getPositions()
 const positionSelector = document.createElement('select')
 for (let i = 0; i < positions.length; i++){
     const positionsOption = document.createElement('option')
@@ -104,9 +116,9 @@ submitButton.addEventListener("click", () => {
     const selectedPlayer = playerSelector.value.split("-")
     const selectedPlayerName = selectedPlayer[0].trim()
     const selectedPlayerNum = selectedPlayer[1].trim()
-    fv.addPlayerTeam1(positionSelector.value, selectedPlayerName, selectedPlayerNum,false)})
+    fv3.addPlayerTeam1(positionSelector.value, selectedPlayerName, selectedPlayerNum, false)})
 teamDemo.append(submitButton)
 
 body.append(teamDemo)
 
-fv.drawPitch(false, "Sharks", "Eagles")
+fv3.drawPitch(false, "Sharks", "Eagles")

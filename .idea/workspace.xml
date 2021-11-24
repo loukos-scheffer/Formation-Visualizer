@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14a2a1-9ea3-436f-8e3b-a1da551df5dd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pub/examples.js" beforeDir="false" afterPath="$PROJECT_DIR$/pub/examples.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +28,9 @@
   <component name="ProjectId" id="21AOX3bSFW4B40z8nL6QmogFuEN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -58,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1637380461714</updated>
       <workItem from="1637380463484" duration="31874000" />
-      <workItem from="1637717931654" duration="1105000" />
+      <workItem from="1637717931654" duration="2176000" />
     </task>
     <servers />
   </component>
