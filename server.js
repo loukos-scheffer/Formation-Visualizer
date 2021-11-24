@@ -10,14 +10,6 @@ const path = require('path');
 
 app.use(express.static(path.join(__dirname, '/pub')))
 
-app.get('/', (req, res) => {
-    res.sendFile("pub/examples.html")
-    res.sendFile("pub/examples.js")
-})
-
-app.get('/problem', (req, res) => {
-    res.status(500).send('Server issues')
-})
 
 const port = process.env.PORT || 5000
 app.listen(port, () => {
