@@ -176,7 +176,7 @@ FormationVisualizer.prototype = {
         }
     },
 
-    addPlayerTeam1: function (position, name, number, ratingsEnabled) {
+    addPlayerTeam1: function (position, firstName, lastName, number, ratingsEnabled) {
         if (this.checkTeam1(number, position)){
             console.log("collision")
             return;
@@ -186,43 +186,62 @@ FormationVisualizer.prototype = {
         const player = document.createElement('button')
         newDiv.id = name
         if (position === "GK") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 15px; background-color: Aqua; position: absolute; text: center;"
+            newDiv.style = "margin-top: 240px; margin-left: 5px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "LB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 70px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 50px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "LCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 150px; margin-left: 70px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 150px; margin-left: 50px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "CCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 70px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 50px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 330px; margin-left: 70px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 330px; margin-left: 50px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 70px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 50px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "LWB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 170px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 150px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RWB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 170px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 150px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "CDM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 170px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 150px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "CAM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 300px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 280px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "LCM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 180px; margin-left: 235px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 180px; margin-left: 215px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RCM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 300px; margin-left: 235px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 300px; margin-left: 215px;  position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "LM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 235px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 215px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 235px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 215px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "LW") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 300px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 280px;  position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; text-align: center;"
         } else if (position === "RW") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 300px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 280px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "LST") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 180px; margin-left: 370px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 180px; margin-left: 340px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px;"
         } else if (position === "RST") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 300px; margin-left: 370px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 300px; margin-left: 340px;  position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         } else if (position === "CF") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 370px; background-color: Aqua; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 340px; position: absolute;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px;"
         }
 
         this.team1players[number] = this.createPlayer(position, name, number)
@@ -234,11 +253,18 @@ FormationVisualizer.prototype = {
         }
         player.textContent = number
         newDiv.append(player)
+
+        const nameDiv = document.createElement('div')
+        const playerName = document.createTextNode(lastName)
+        nameDiv.style = "color: white; font-size: 9px; width: 60px; text-align: center;"
+        nameDiv.append(playerName)
+        newDiv.append(nameDiv)
+
         const pitch = this.pitch
         pitch.append(newDiv)
     },
 
-    addPlayerTeam2: function (position, name, number, ratingsEnabled) {
+    addPlayerTeam2: function (position, firstName, lastName, number, ratingsEnabled) {
 
         if (this.checkTeam2(number, position)){
             console.log("collision")
@@ -249,51 +275,76 @@ FormationVisualizer.prototype = {
         const player = document.createElement('button')
         newDiv.id = name
         if (position === "GK") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 765px; background-color: Pink; position: absolute; text: center;"
+            newDiv.style = "margin-top: 240px; margin-left: 740px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "RB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 710px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 690px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px;"
         } else if (position === "RCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 150px; margin-left: 710px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 150px; margin-left: 690px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "CCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 710px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 690px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "LCB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 330px; margin-left: 710px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 330px; margin-left: 690px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "LB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 710px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 690px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "RWB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 610px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 590px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "LWB") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 610px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 590px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "CDM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 610px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 590px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "CAM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 480px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 460px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "RCM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 180px; margin-left: 545px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 180px; margin-left: 525px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px;"
         } else if (position === "LCM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 300px; margin-left: 545px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 300px; margin-left: 525px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "RM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 545px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 525px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "LM") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 545px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 525px;  position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px;"
         } else if (position === "RW") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 50px; margin-left: 480px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 50px; margin-left: 460px;  position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px;"
         } else if (position === "LW") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 430px; margin-left: 480px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 430px; margin-left: 460px;  position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px;"
         } else if (position === "RST") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 180px; margin-left: 410px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 180px; margin-left: 400px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "LST") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 300px; margin-left: 410px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 300px; margin-left: 400px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         } else if (position === "CF") {
-            player.style = "width: 20px; height: 20px; border-radius: 50%; margin-top: 240px; margin-left: 410px; background-color: Pink; position: absolute;"
+            newDiv.style = "margin-top: 240px; margin-left: 400px; position: absolute; text: center;"
+            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px;"
         }
 
         player.textContent = number
-        this.team2players[number] = this.createPlayer(position, name, number)
+        this.team2players[number] = this.createPlayer(position, firstName + " " + lastName, number)
         player.addEventListener("click", () => {
             this.showPlayerStatsTeam2(number, ratingsEnabled)
         });
         newDiv.append(player)
+        const nameDiv = document.createElement('div')
+        const playerName = document.createTextNode(lastName)
+        nameDiv.style = "color: white; font-size: 9px; width: 60px; text-align: center;"
+        nameDiv.append(playerName)
+        newDiv.append(nameDiv)
+
         const pitch = this.pitch
         pitch.append(newDiv)
     },
