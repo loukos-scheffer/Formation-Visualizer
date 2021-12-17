@@ -177,6 +177,11 @@ FormationVisualizer.prototype = {
     },
 
     addPlayerTeam1: function (position, name, number, ratingsEnabled) {
+        if (this.checkTeam1(number, position)){
+            console.log("collision")
+            return;
+        }
+
         const newDiv = document.createElement('div')
         const player = document.createElement('button')
         newDiv.id = name
@@ -234,6 +239,12 @@ FormationVisualizer.prototype = {
     },
 
     addPlayerTeam2: function (position, name, number, ratingsEnabled) {
+
+        if (this.checkTeam2(number, position)){
+            console.log("collision")
+            return;
+        }
+
         const newDiv = document.createElement('div')
         const player = document.createElement('button')
         newDiv.id = name
@@ -285,6 +296,42 @@ FormationVisualizer.prototype = {
         newDiv.append(player)
         const pitch = this.pitch
         pitch.append(newDiv)
+    },
+
+    checkTeam1: function (number, position) {
+        if (this.team1players[number] != null){
+            console.log("number collision")
+            return true
+        }
+        if (Object.entries(this.team1players).length > 10){
+            console.log("team already has 11 players")
+            return true
+        }
+
+        return Object.entries(this.team1players).some(function (elem) {
+            if (elem[1].position === position) {
+                console.log("position collision")
+                return true
+            }
+        });
+    },
+
+    checkTeam2: function (number, position) {
+        if (this.team2players[number] != null){
+            console.log("number collision")
+            return true
+        }
+        if (Object.entries(this.team2players).length > 10){
+            console.log("team already has 11 players")
+            return true
+        }
+
+        return Object.entries(this.team2players).some(function (elem) {
+            if (elem[1].position === position) {
+                console.log("position collision")
+                return true
+            }
+        });
     },
 
     drawInfoBox: function (team1, team2) {
@@ -697,6 +744,12 @@ FormationVisualizer.prototype = {
     },
     getTeam2goalsAgainst: function (playerNumber) {
         return this.team2players[playerNumber].goalsAgainst
+    },
+    getTeam1Players: function () {
+        return this.team1players
+    },
+    getTeam2Players: function () {
+        return this.team2players
     },
     getPositions: function () {
         return this.positions

@@ -63,6 +63,10 @@ fv2.setTeam2PlayerStats(20, 2, "90 minutes", 0, 0, 2, 0, 1.1, 10, 0, 2, 0, 0)
 fv2.showPlayerStatsTeam1(10, false)
 fv2.showPlayerStatsTeam2(18, false)
 
+console.log(fv2.getTeam1Players())
+console.log(fv2.getTeam2Players())
+
+
 const fv3 = new FormationVisualizer()
 const demo3text = document.createTextNode('This is a second demonstration of how the library could be used as part of a' +
     ' coaching or team organization app. A developer could allow users to setup in a variety of formations and player ' +
