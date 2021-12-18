@@ -14,14 +14,14 @@
             Formation Visualizer
         </a>
     </div>
-    <div style="width: 150px; font-size: x-large; font-weight: 600; margin-left: auto; text-align: center;">
+    <div style="width: 250px; font-size: x-large; font-weight: 600; margin-left: auto; text-align: center;">
         <a rel="next" href = "examples.html" style="color: inherit; text-decoration: none;" >
-            Demo
+            Example Usage
         </a>
     </div>
-    <div style="width: 150px; font-size: x-large; font-weight: 600; text-align: center;">
+    <div style="width: 250px; font-size: x-large; font-weight: 600; text-align: center;">
         <a rel="next" href = "api.html" style="color: inherit; text-decoration: none;" >
-            API
+            Getting Started
         </a>
     </div>
 </div>
@@ -31,6 +31,58 @@
             <p style="font-size: xxx-large; text-align: center; margin: 0px;" >
                 API Information
             </p>
+            <div style="margin-left: 50px; margin-right: 50px;">
+            <p>To get started with FormationVisualizer first construct an instance of the object:</p>
+            <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">const fv = new FormationVisualizer() </code>
+                <p>You can then create a new pitch by calling <code>drawPitch</code> with the following parameters</p>
+                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.drawPitch(infobox, team1, team2, team1score, team2score, team1color,
+                    team2color, scoringEnabled, htmlElem) </code>
+                    <ul>
+                    <li><code>infobox</code> is a boolean that signifies whether the developer would like the infobox to be displayed (ex. 1) or not (ex.2).</li>
+                    <li><code>team1</code> is a string that represents the left side team name (ex. Tottenham Hotspur FC). If <code>infobox</code> is false, this can be null.</li>
+                    <li><code>team2</code> is a string that represents the left side team name (ex. Canadian National Team). If <code>infobox</code> is false, this can be null.</li>
+                    <li><code>team1score</code> is an int that represents the score of team 1. If <code>infobox</code> or <code>ratingsEnabled</code> is false, this can be null.</li>
+                    <li><code>team2score</code> is an int that represents the score of team 2. If <code>infobox</code> or <code>ratingsEnabled</code> is false, this can be null.</li>
+                    <li><code>team1color</code> is a string that represents the color of team 1 (ex. #1a1d21). This determines what color the player circles will be.</li>
+                    <li><code>team2color</code> is a string that represents the color of team 2 (ex. #1a1d21). This determines what color the player circles will be.</li>
+                    <li><code>ratingsEnabled</code> is a boolean that represents whether the developer would like the match score to be displayed in the infobox.</li>
+                    <li><code>htmlElem</code> is the HTML element that the pitch will be appended do.</li>
+                    </ul>
+                <p>At this point a player can be added to the pitch by utilizing <code>addPlayerTeam1</code> or <code>addPlayerTeam2</code> :</p>
+                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.addPlayerTeam1(position, firstName, lastName, number, ratingsEnabled, imageUrl)</code>
+                <ul>
+                    <li><code>position</code> is a string that represents the position of the player. The library supports the following positions:
+                        <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">"GK", //Goalkeeper
+"LB", //Left Back
+"LCB", //Left Centre Back
+"CCB", //Center Center Back
+"RCB", //Right Center Back
+"RB", //Right Back
+"LWB", //Left Wing Back
+"RWB", //Right Wing Back
+"CDM", //Central Defensive Midfielder
+"LCM", //Left Centre Midfielder
+"RCM", //Right Centre Midfielder
+"LM", //Left Midfielder
+"RM", //Right Midfielder
+"CAM", //Central Attacking Midfielder
+"LW", //Left Winger
+"RW", //Right Winger
+"CF", //Centre Forward
+"LST", //Left Striker
+"RST" //Right Striker</code>
+                    </li>
+                    <li><code>firstName</code> is a string that represents the first name of the player (ex. Harry).</li>
+                    <li><code>lastName</code> is a string that represents the last name of the player (ex. Kane). </li>
+                    <li><code>number</code> is an int that represents the number of the player. It is recommended that a number of 1 or 2 digits is entered as is standard for numbers in the sport. Entering 3 or more digits will work as on rare occasion players are allowed to utilize numbers of such length, but the formatting is not optimized for such cases.</li>
+                    <li><code>ratingsEnabled</code> is an boolean that represents whether player ratings will show in the infobox.</li>
+                    <li><code>imageUrl</code> is a string that the URL of the players picture.</li>
+                </ul>
+                <p>The statistics of each player can be set using <code>setTeam1PlayerStats</code> or <code>setTeam2PlayerStats</code>:</p>
+                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.setTeam2PlayerStats(playerNumber, numGoals, numPlayed, numGoalsAgainst, numShotsAgainst, numShots,
+                    numxGoalsAgainst, numxGoals, numRating, numSaves, numFoulsCommitted, numRedCards,
+                    numYellowCards)</code>
+            </div>
         </div>
     </div>
     <img

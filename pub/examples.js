@@ -20,7 +20,7 @@ pitch2.id = "football pitch"
 pitch2.style = "justify-content: center; display: flex;"
 body.append(pitch2)
 
-fv2.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team", 2, 3, "Aqua", "Pink", true, pitch2)
+fv2.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team", 3, 4, "Aqua", "Pink", true, pitch2)
 fv2.addPlayerTeam1("GK", "Hugo", "Lloris", 1, true, "https://tot-tmp.azureedge.net/media/40825/firstteam_hugolloris_2021_22.png?anchor=center&mode=crop&width=500")
 fv2.setTeam1PlayerStats(1, 0, "90 minutes", 4, 9, 0, 4.3, 0, 9, 5, 2, 0, 0)
 fv2.addPlayerTeam1("LB", "Sergio", "Reguilon", 3, true, "https://tot-tmp.azureedge.net/media/40836/firstteam_sergioreguilon_2021_22.png?anchor=center&mode=crop&width=500")
