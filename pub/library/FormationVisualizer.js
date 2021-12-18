@@ -168,21 +168,20 @@ FormationVisualizer.prototype = {
         pitch.append(centreLine)
 
 
-
         if (infobox === true) {
             const infoboxPitchWrapper = document.createElement('div')
             infoboxPitchWrapper.append(pitch)
             this.drawInfoBox(team1, team2, team1score, team2score, scoringEnabled, infoboxPitchWrapper)
             htmlElem.append(infoboxPitchWrapper)
             this.pitch = pitch
-        }else{
+        } else {
             htmlElem.append(pitch)
             this.pitch = pitch
         }
     },
 
     addPlayerTeam1: function (position, firstName, lastName, number, ratingsEnabled, imageUrl) {
-        if (this.checkTeam1(number, position)){
+        if (this.checkTeam1(number, position)) {
             return;
         }
 
@@ -248,7 +247,7 @@ FormationVisualizer.prototype = {
             player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         }
 
-        this.team1players[number] = this.createPlayer(position,firstName + " " + lastName, number, imageUrl)
+        this.team1players[number] = this.createPlayer(position, firstName + " " + lastName, number, imageUrl)
 
         if (this.infoBox != null) {
             player.addEventListener("click", () => {
@@ -274,7 +273,7 @@ FormationVisualizer.prototype = {
 
     addPlayerTeam2: function (position, firstName, lastName, number, ratingsEnabled, imageUrl) {
 
-        if (this.checkTeam2(number, position)){
+        if (this.checkTeam2(number, position)) {
             console.log("collision")
             return;
         }
@@ -363,11 +362,11 @@ FormationVisualizer.prototype = {
     },
 
     checkTeam1: function (number, position) {
-        if (this.team1players[number] != null){
+        if (this.team1players[number] != null) {
             console.log("number collision")
             return true
         }
-        if (Object.entries(this.team1players).length > 10){
+        if (Object.entries(this.team1players).length > 10) {
             console.log("team already has 11 players")
             return true
         }
@@ -381,11 +380,11 @@ FormationVisualizer.prototype = {
     },
 
     checkTeam2: function (number, position) {
-        if (this.team2players[number] != null){
+        if (this.team2players[number] != null) {
             console.log("number collision")
             return true
         }
-        if (Object.entries(this.team2players).length > 10){
+        if (Object.entries(this.team2players).length > 10) {
             console.log("team already has 11 players")
             return true
         }
@@ -407,8 +406,8 @@ FormationVisualizer.prototype = {
         teamsDiv.style = "width: 802px; height: 20px; display: inline-flex;"
 
         const scoreDiv = document.createElement('div')
-        if (scoringEnabled){
-            const score = document.createTextNode(team1score + " - "  + team2score)
+        if (scoringEnabled) {
+            const score = document.createTextNode(team1score + " - " + team2score)
             scoreDiv.append(score)
         }
         scoreDiv.style = "width: 52px;text-align: center; font: robinson; font-size: 18px;"
@@ -944,7 +943,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam1Yellow: function (playerNumber){
+    renderTeam1Yellow: function (playerNumber) {
         const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
 
         const yellowCard = document.createElement('div')
@@ -954,7 +953,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam2Yellow: function (playerNumber){
+    renderTeam2Yellow: function (playerNumber) {
         const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
 
         const yellowCard = document.createElement('div')
@@ -964,7 +963,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam1Red: function (playerNumber){
+    renderTeam1Red: function (playerNumber) {
         const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
 
         const redCard = document.createElement('div')
@@ -974,7 +973,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam2Red: function (playerNumber){
+    renderTeam2Red: function (playerNumber) {
         const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
 
         const redCard = document.createElement('div')
@@ -984,7 +983,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam1Goal: function (playerNumber){
+    renderTeam1Goal: function (playerNumber) {
         const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
 
         const goal = document.createElement('div')
@@ -996,7 +995,7 @@ FormationVisualizer.prototype = {
         infoDiv.append(goal)
     },
 
-    renderTeam2Goal: function (playerNumber){
+    renderTeam2Goal: function (playerNumber) {
         const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
 
         const goal = document.createElement('div')
