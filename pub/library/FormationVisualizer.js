@@ -176,7 +176,7 @@ FormationVisualizer.prototype = {
         }
     },
 
-    addPlayerTeam1: function (position, firstName, lastName, number, ratingsEnabled) {
+    addPlayerTeam1: function (position, firstName, lastName, number, ratingsEnabled, imageUrl) {
         if (this.checkTeam1(number, position)){
             return;
         }
@@ -243,7 +243,7 @@ FormationVisualizer.prototype = {
             player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
         }
 
-        this.team1players[number] = this.createPlayer(position, name, number)
+        this.team1players[number] = this.createPlayer(position,firstName + " " + lastName, number, imageUrl)
 
         if (this.infoBox != null) {
             player.addEventListener("click", () => {
@@ -263,7 +263,7 @@ FormationVisualizer.prototype = {
         pitch.append(newDiv)
     },
 
-    addPlayerTeam2: function (position, firstName, lastName, number, ratingsEnabled) {
+    addPlayerTeam2: function (position, firstName, lastName, number, ratingsEnabled, imageUrl) {
 
         if (this.checkTeam2(number, position)){
             console.log("collision")
@@ -333,7 +333,7 @@ FormationVisualizer.prototype = {
         }
 
         player.textContent = number
-        this.team2players[number] = this.createPlayer(position, firstName + " " + lastName, number)
+        this.team2players[number] = this.createPlayer(position, firstName + " " + lastName, number, imageUrl)
         player.addEventListener("click", () => {
             this.showPlayerStatsTeam2(number, ratingsEnabled)
         });
@@ -405,11 +405,12 @@ FormationVisualizer.prototype = {
         body.append(infoBox)
     },
 
-    createPlayer: function (position, name, number) {
+    createPlayer: function (position, name, number, imageUrl) {
         return {
             position: position,
             name: name,
             number: number,
+            imageUrl: imageUrl,
             goals: 0,
             played: 0,
             shots: 0,
@@ -426,229 +427,493 @@ FormationVisualizer.prototype = {
     },
 
     showPlayerStatsTeam1: function (number, ratingsEnabled) {
-        const playerStats = document.createElement('div')
-        playerStats.id = "team1playerstats"
-        playerStats.style = "height: 280px; margin-top: 20px; width: 401px; position: absolute;"
+        const playerStatsContainer = document.createElement('container')
+        playerStatsContainer.id = "team1playerStats"
+        playerStatsContainer.style = "height: 280px; width: 401px; position: absolute; display: flex;"
 
-        const nameDiv = document.createElement('div')
-        const nameText = document.createTextNode("Name: " + this.team1players[number].name)
-        nameDiv.style = "margin-left: 50px; margin-top: 20px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        nameDiv.append(nameText)
-        playerStats.append(nameDiv)
+        const playerStatsDiv = document.createElement('div')
+        playerStatsDiv.style = "height: 280px; width: 401px; margin-top: 20px;"
 
-        const numberDiv = document.createElement('div')
-        const numberText = document.createTextNode("Jersey number: " + this.team1players[number].number)
-        numberDiv.style = "margin-left: 50px; margin-top: 40px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        numberDiv.append(numberText)
-        playerStats.append(numberDiv)
+        const stat1Container = document.createElement('container')
+        const stat2Container = document.createElement('container')
+        const stat3Container = document.createElement('container')
+        const stat4Container = document.createElement('container')
+        const stat5Container = document.createElement('container')
+        const stat6Container = document.createElement('container')
+        const stat7Container = document.createElement('container')
+        const stat8Container = document.createElement('container')
+        const stat9Container = document.createElement('container')
+        const stat10Container = document.createElement('container')
+        const stat11Container = document.createElement('container')
+        const stat12Container = document.createElement('container')
+        const stat13Container = document.createElement('container')
+
+        stat1Container.style = "width: 250px; height: 20px; margin-top: 20px; position: absolute; display: flex;"
+        stat2Container.style = "width: 250px; height: 20px; margin-top: 40px; position: absolute; display: flex;"
+        stat3Container.style = "width: 250px; height: 20px; margin-top: 60px; position: absolute; display: flex;"
+        stat4Container.style = "width: 250px; height: 20px; margin-top: 80px; position: absolute; display: flex;"
+        stat5Container.style = "width: 250px; height: 20px; margin-top: 100px; position: absolute; display: flex;"
+        stat6Container.style = "width: 250px; height: 20px; margin-top: 120px; position: absolute; display: flex;"
+        stat7Container.style = "width: 250px; height: 20px; margin-top: 140px; position: absolute; display: flex;"
+        stat8Container.style = "width: 250px; height: 20px; margin-top: 160px; position: absolute; display: flex;"
+        stat9Container.style = "width: 250px; height: 20px; margin-top: 180px; position: absolute; display: flex;"
+        stat10Container.style = "width: 250px; height: 20px; margin-top: 200px; position: absolute; display: flex;"
+        stat11Container.style = "width: 250px; height: 20px; margin-top: 220px; position: absolute; display: flex;"
+        stat12Container.style = "width: 250px; height: 20px; margin-top: 240px; position: absolute; display: flex;"
+        stat13Container.style = "width: 250px; height: 20px; margin-top: 260px; position: absolute; display: flex;"
+
+        const stat1Div = document.createElement('div')
+        const stat2Div = document.createElement('div')
+        const stat3Div = document.createElement('div')
+        const stat4Div = document.createElement('div')
+        const stat5Div = document.createElement('div')
+        const stat6Div = document.createElement('div')
+        const stat7Div = document.createElement('div')
+        const stat8Div = document.createElement('div')
+        const stat9Div = document.createElement('div')
+        const stat10Div = document.createElement('div')
+        const stat11Div = document.createElement('div')
+        const stat12Div = document.createElement('div')
+        const stat13Div = document.createElement('div')
+
+        stat1Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat2Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat3Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat4Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat5Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat6Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat7Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat8Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat9Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat10Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat11Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat12Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat13Div.style = "width: 250px; height: 20px; display: inline-flex;"
+
+        const stat1div1 = document.createElement('div')
+        const stat1div2 = document.createElement('div')
+        stat1div1.style = "display: inline-flex; padding-left: 5px;"
+        stat1div2.style = "display: inline-flex; margin-left: auto;"
+
+        const stat2div1 = document.createElement('div')
+        const stat2div2 = document.createElement('div')
+        stat2div1.style = "display: inline; padding-left: 5px;"
+        stat2div2.style = "display: inline; margin-left: auto;"
+        const stat3div1 = document.createElement('div')
+        const stat3div2 = document.createElement('div')
+        stat3div1.style = "display: inline; padding-left: 5px;"
+        stat3div2.style = "display: inline; margin-left: auto;"
+        const stat4div1 = document.createElement('div')
+        const stat4div2 = document.createElement('div')
+        stat4div1.style = "display: inline; padding-left: 5px;"
+        stat4div2.style = "display: inline; margin-left: auto;"
+        const stat5div1 = document.createElement('div')
+        const stat5div2 = document.createElement('div')
+        stat5div1.style = "display: inline; padding-left: 5px;"
+        stat5div2.style = "display: inline; margin-left: auto;"
+        const stat6div1 = document.createElement('div')
+        const stat6div2 = document.createElement('div')
+        stat6div1.style = "display: inline; padding-left: 5px;"
+        stat6div2.style = "display: inline; margin-left: auto;"
+        const stat7div1 = document.createElement('div')
+        const stat7div2 = document.createElement('div')
+        stat7div1.style = "display: inline; padding-left: 5px;"
+        stat7div2.style = "display: inline; margin-left: auto;"
+        const stat8div1 = document.createElement('div')
+        const stat8div2 = document.createElement('div')
+        stat8div1.style = "display: inline; padding-left: 5px;"
+        stat8div2.style = "display: inline; margin-left: auto;"
+        const stat9div1 = document.createElement('div')
+        const stat9div2 = document.createElement('div')
+        stat9div1.style = "display: inline; padding-left: 5px;"
+        stat9div2.style = "display: inline; margin-left: auto;"
+        const stat10div1 = document.createElement('div')
+        const stat10div2 = document.createElement('div')
+        stat10div1.style = "display: inline; padding-left: 5px;"
+        stat10div2.style = "display: inline; margin-left: auto;"
+        const stat11div1 = document.createElement('div')
+        const stat11div2 = document.createElement('div')
+        stat11div1.style = "display: inline; padding-left: 5px;"
+        stat11div2.style = "display: inline; margin-left: auto;"
+        const stat12div1 = document.createElement('div')
+        const stat12div2 = document.createElement('div')
+        stat12div1.style = "display: inline; padding-left: 5px;"
+        stat12div2.style = "display: inline; margin-left: auto;"
+        const stat13div1 = document.createElement('div')
+        const stat13div2 = document.createElement('div')
+        stat13div1.style = "display: inline; padding-left: 5px;"
+        stat13div2.style = "display: inline; margin-left: auto;"
+
+        const playerImageDiv = document.createElement('div')
+        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px;"
+
+        const playerImage = document.createElement('img')
+        playerImage.src = this.team1players[number].imageUrl
+        playerImage.style = "width: 145px;"
+        playerImageDiv.append(playerImage)
+
+        stat1div1.append(document.createTextNode("Name: "))
+        stat1div2.append(this.team1players[number].name)
+
+        stat2div1.append(document.createTextNode("Number: "))
+        stat2div2.append(this.team1players[number].number)
 
         if (this.team1players[number].position !== "GK") {
-            const goalsDiv = document.createElement('div')
-            const goalsText = document.createTextNode("Goals: " + this.team1players[number].goals)
-            goalsDiv.style = "margin-left: 50px; margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            goalsDiv.append(goalsText)
-            playerStats.append(goalsDiv)
 
-            const shotsDiv = document.createElement('div')
-            const shotsText = document.createTextNode("Shots: " + this.team1players[number].shots)
-            shotsDiv.style = "margin-left: 50px; margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            shotsDiv.append(shotsText)
-            playerStats.append(shotsDiv)
+            stat3div1.append(document.createTextNode("Goals: "))
+            stat3div2.append(this.team1players[number].goals)
 
-            const foulsDiv = document.createElement('div')
-            const foulsText = document.createTextNode("Fouls Committed: " + this.team1players[number].foulsCommitted)
-            foulsDiv.style = "margin-left: 50px; margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            foulsDiv.append(foulsText)
-            playerStats.append(foulsDiv)
+            stat4div1.append(document.createTextNode("Shots: "))
+            stat4div2.append(this.team1players[number].shots)
 
-            const yellowDiv = document.createElement('div')
-            const yellowText = document.createTextNode("Yellow Cards: " + this.team1players[number].yellowCards)
-            yellowDiv.style = "margin-left: 50px; margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            yellowDiv.append(yellowText)
-            playerStats.append(yellowDiv)
+            stat5div1.append(document.createTextNode("Fouls Committed: "))
+            stat5div2.append(this.team1players[number].foulsCommitted)
 
-            const redDiv = document.createElement('div')
-            const redText = document.createTextNode("Red Cards: " + this.team1players[number].redCards)
-            redDiv.style = "margin-left: 50px; margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            redDiv.append(redText)
-            playerStats.append(redDiv)
+            stat8div1.append(document.createTextNode("Expected Goals: "))
+            stat8div2.append(this.team1players[number].xGoals)
 
-            const xGoalsDiv = document.createElement('div')
-            const xGoalsText = document.createTextNode("Expected Goals: " + this.team1players[number].xGoals)
-            xGoalsDiv.style = "margin-left: 50px; margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            xGoalsDiv.append(xGoalsText)
-            playerStats.append(xGoalsDiv)
         } else {
-            const goalsAgainstDiv = document.createElement('div')
-            const goalsAgainstText = document.createTextNode("Goals Against: " + this.team1players[number].goalsAgainst)
-            goalsAgainstDiv.style = "margin-left: 50px; margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            goalsAgainstDiv.append(goalsAgainstText)
-            playerStats.append(goalsAgainstDiv)
 
-            const shotsAgainstDiv = document.createElement('div')
-            const shotsAgainstText = document.createTextNode("Shots Against: " + this.team1players[number].shotsAgainst)
-            shotsAgainstDiv.style = "margin-left: 50px; margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            shotsAgainstDiv.append(shotsAgainstText)
-            playerStats.append(shotsAgainstDiv)
+            stat3div1.append(document.createTextNode("Goals Against: "))
+            stat3div2.append(this.team1players[number].goalsAgainst)
 
-            const savesDiv = document.createElement('div')
-            const savesText = document.createTextNode("Saves: " + this.team1players[number].saves)
-            savesDiv.style = "margin-left: 50px; margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            savesDiv.append(savesText)
-            playerStats.append(savesDiv)
+            stat4div1.append(document.createTextNode("Shots Against: "))
+            stat4div2.append(this.team1players[number].shotsAgainst)
 
-            const yellowDiv = document.createElement('div')
-            const yellowText = document.createTextNode("Yellow Cards: " + this.team1players[number].yellowCards)
-            yellowDiv.style = "margin-left: 50px; margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            yellowDiv.append(yellowText)
-            playerStats.append(yellowDiv)
+            stat5div1.append(document.createTextNode("Saves: "))
+            stat5div2.append(this.team1players[number].saves)
 
-            const redDiv = document.createElement('div')
-            const redText = document.createTextNode("Red Cards: " + this.team1players[number].redCards)
-            redDiv.style = "margin-left: 50px; margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            redDiv.append(redText)
-            playerStats.append(redDiv)
-
-            const xGoalsAgainstDiv = document.createElement('div')
-            const xGoalsAgainstText = document.createTextNode("Expected Goals Against: " + this.team1players[number].xGoalsAgainst)
-            xGoalsAgainstDiv.style = "margin-left: 50px; margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            xGoalsAgainstDiv.append(xGoalsAgainstText)
-            playerStats.append(xGoalsAgainstDiv)
+            stat8div1.append(document.createTextNode("Expected Goals Against: "))
+            stat8div2.append(this.team1players[number].xGoalsAgainst)
         }
 
-        const positionDiv = document.createElement('div')
-        const positionText = document.createTextNode("Position: " + this.team1players[number].position)
-        positionDiv.style = "margin-left: 50px; margin-top: 180px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        positionDiv.append(positionText)
-        playerStats.append(positionDiv)
+        stat6div1.append(document.createTextNode("Yellow Cards: "))
+        stat6div2.append(this.team1players[number].yellowCards)
+
+        stat7div1.append(document.createTextNode("Red Cards: "))
+        stat7div2.append(this.team1players[number].redCards)
+
+        stat9div1.append(document.createTextNode("Position: "))
+        stat9div2.append(this.team1players[number].position)
 
         if (ratingsEnabled === true) {
-            const ratingDiv = document.createElement('div')
-            const ratingText = document.createTextNode("Player rating: " + this.team1players[number].rating)
-            ratingDiv.style = "margin-left: 50px; margin-top: 220px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            ratingDiv.append(ratingText)
-            playerStats.append(ratingDiv)
+
+            stat11div1.append(document.createTextNode("Rating: "))
+            stat11div2.append(this.team1players[number].rating)
         }
 
-        const oldPlayerstats = document.querySelector("#team1playerstats")
+        stat1Div.append(stat1div1)
+        stat1Div.append(stat1div2)
+        stat2Div.append(stat2div1)
+        stat2Div.append(stat2div2)
+        stat3Div.append(stat3div1)
+        stat3Div.append(stat3div2)
+        stat4Div.append(stat4div1)
+        stat4Div.append(stat4div2)
+        stat5Div.append(stat5div1)
+        stat5Div.append(stat5div2)
+        stat6Div.append(stat6div1)
+        stat6Div.append(stat6div2)
+        stat7Div.append(stat7div1)
+        stat7Div.append(stat7div2)
+        stat8Div.append(stat8div1)
+        stat8Div.append(stat8div2)
+        stat9Div.append(stat9div1)
+        stat9Div.append(stat9div2)
+        stat10Div.append(stat10div1)
+        stat10Div.append(stat10div2)
+        stat11Div.append(stat11div1)
+        stat11Div.append(stat11div2)
+        stat12Div.append(stat12div1)
+        stat12Div.append(stat12div2)
+        stat13Div.append(stat13div1)
+        stat13Div.append(stat13div2)
+
+        stat1Container.append(stat1Div)
+        stat2Container.append(stat2Div)
+        stat3Container.append(stat3Div)
+        stat4Container.append(stat4Div)
+        stat5Container.append(stat5Div)
+        stat6Container.append(stat6Div)
+        stat7Container.append(stat7Div)
+        stat8Container.append(stat8Div)
+        stat9Container.append(stat9Div)
+        stat10Container.append(stat10Div)
+        stat11Container.append(stat11Div)
+        stat12Container.append(stat12Div)
+        stat13Container.append(stat13Div)
+
+        playerStatsDiv.append(stat1Container)
+        playerStatsDiv.append(stat2Container)
+        playerStatsDiv.append(stat3Container)
+        playerStatsDiv.append(stat4Container)
+        playerStatsDiv.append(stat5Container)
+        playerStatsDiv.append(stat6Container)
+        playerStatsDiv.append(stat7Container)
+        playerStatsDiv.append(stat8Container)
+        playerStatsDiv.append(stat9Container)
+        playerStatsDiv.append(stat10Container)
+        playerStatsDiv.append(stat11Container)
+        playerStatsDiv.append(stat12Container)
+        playerStatsDiv.append(stat13Container)
+
+        playerStatsDiv.id = "player stats div"
+        playerStatsContainer.append(playerStatsDiv)
+        playerImageDiv.id = "player image div"
+        playerStatsContainer.append(playerImageDiv)
+
+        const oldPlayerstats = document.querySelector("#team1playerStats")
         if (oldPlayerstats == null) {
-            this.infoBox.appendChild(playerStats)
+            this.infoBox.appendChild(playerStatsContainer)
         } else {
-            this.infoBox.replaceChild(playerStats, oldPlayerstats)
+            this.infoBox.replaceChild(playerStatsContainer, oldPlayerstats)
         }
     },
 
     showPlayerStatsTeam2: function (number, ratingsEnabled) {
-        const playerStats = document.createElement('div')
-        playerStats.id = "team2playerstats"
-        playerStats.style = "margin-left: 401px; height: 280px; margin-top: 20px; width: 401px; position: absolute;"
 
-        const nameDiv = document.createElement('div')
-        const nameText = document.createTextNode("Name: " + this.team2players[number].name)
-        nameDiv.style = " margin-top: 20px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        nameDiv.append(nameText)
-        playerStats.append(nameDiv)
+        const playerStatsContainer = document.createElement('container')
+        playerStatsContainer.id = "team2playerStats"
+        playerStatsContainer.style = "margin-left: 401px; height: 280px; width: 401px; position: absolute; display: flex;"
 
-        const numberDiv = document.createElement('div')
-        const numberText = document.createTextNode("Jersey number: " + this.team2players[number].number)
-        numberDiv.style = " margin-top: 40px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        numberDiv.append(numberText)
-        playerStats.append(numberDiv)
+        const playerStatsDiv = document.createElement('div')
+        playerStatsDiv.style = "height: 280px; width: 401px; margin-top: 20px;"
+
+        const stat1Container = document.createElement('container')
+        const stat2Container = document.createElement('container')
+        const stat3Container = document.createElement('container')
+        const stat4Container = document.createElement('container')
+        const stat5Container = document.createElement('container')
+        const stat6Container = document.createElement('container')
+        const stat7Container = document.createElement('container')
+        const stat8Container = document.createElement('container')
+        const stat9Container = document.createElement('container')
+        const stat10Container = document.createElement('container')
+        const stat11Container = document.createElement('container')
+        const stat12Container = document.createElement('container')
+        const stat13Container = document.createElement('container')
+
+        stat1Container.style = "width: 250px; height: 20px; margin-top: 20px; position: absolute; display: flex;"
+        stat2Container.style = "width: 250px; height: 20px; margin-top: 40px; position: absolute; display: flex;"
+        stat3Container.style = "width: 250px; height: 20px; margin-top: 60px; position: absolute; display: flex;"
+        stat4Container.style = "width: 250px; height: 20px; margin-top: 80px; position: absolute; display: flex;"
+        stat5Container.style = "width: 250px; height: 20px; margin-top: 100px; position: absolute; display: flex;"
+        stat6Container.style = "width: 250px; height: 20px; margin-top: 120px; position: absolute; display: flex;"
+        stat7Container.style = "width: 250px; height: 20px; margin-top: 140px; position: absolute; display: flex;"
+        stat8Container.style = "width: 250px; height: 20px; margin-top: 160px; position: absolute; display: flex;"
+        stat9Container.style = "width: 250px; height: 20px; margin-top: 180px; position: absolute; display: flex;"
+        stat10Container.style = "width: 250px; height: 20px; margin-top: 200px; position: absolute; display: flex;"
+        stat11Container.style = "width: 250px; height: 20px; margin-top: 220px; position: absolute; display: flex;"
+        stat12Container.style = "width: 250px; height: 20px; margin-top: 240px; position: absolute; display: flex;"
+        stat13Container.style = "width: 250px; height: 20px; margin-top: 260px; position: absolute; display: flex;"
+
+        const stat1Div = document.createElement('div')
+        const stat2Div = document.createElement('div')
+        const stat3Div = document.createElement('div')
+        const stat4Div = document.createElement('div')
+        const stat5Div = document.createElement('div')
+        const stat6Div = document.createElement('div')
+        const stat7Div = document.createElement('div')
+        const stat8Div = document.createElement('div')
+        const stat9Div = document.createElement('div')
+        const stat10Div = document.createElement('div')
+        const stat11Div = document.createElement('div')
+        const stat12Div = document.createElement('div')
+        const stat13Div = document.createElement('div')
+
+        stat1Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat2Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat3Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat4Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat5Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat6Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat7Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat8Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat9Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat10Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat11Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat12Div.style = "width: 250px; height: 20px; display: inline-flex;"
+        stat13Div.style = "width: 250px; height: 20px; display: inline-flex;"
+
+        const stat1div1 = document.createElement('div')
+        const stat1div2 = document.createElement('div')
+        stat1div1.style = "display: inline-flex; padding-left: 5px;"
+        stat1div2.style = "display: inline-flex; margin-left: auto;"
+
+        const stat2div1 = document.createElement('div')
+        const stat2div2 = document.createElement('div')
+        stat2div1.style = "display: inline; padding-left: 5px;"
+        stat2div2.style = "display: inline; margin-left: auto;"
+        const stat3div1 = document.createElement('div')
+        const stat3div2 = document.createElement('div')
+        stat3div1.style = "display: inline; padding-left: 5px;"
+        stat3div2.style = "display: inline; margin-left: auto;"
+        const stat4div1 = document.createElement('div')
+        const stat4div2 = document.createElement('div')
+        stat4div1.style = "display: inline; padding-left: 5px;"
+        stat4div2.style = "display: inline; margin-left: auto;"
+        const stat5div1 = document.createElement('div')
+        const stat5div2 = document.createElement('div')
+        stat5div1.style = "display: inline; padding-left: 5px;"
+        stat5div2.style = "display: inline; margin-left: auto;"
+        const stat6div1 = document.createElement('div')
+        const stat6div2 = document.createElement('div')
+        stat6div1.style = "display: inline; padding-left: 5px;"
+        stat6div2.style = "display: inline; margin-left: auto;"
+        const stat7div1 = document.createElement('div')
+        const stat7div2 = document.createElement('div')
+        stat7div1.style = "display: inline; padding-left: 5px;"
+        stat7div2.style = "display: inline; margin-left: auto;"
+        const stat8div1 = document.createElement('div')
+        const stat8div2 = document.createElement('div')
+        stat8div1.style = "display: inline; padding-left: 5px;"
+        stat8div2.style = "display: inline; margin-left: auto;"
+        const stat9div1 = document.createElement('div')
+        const stat9div2 = document.createElement('div')
+        stat9div1.style = "display: inline; padding-left: 5px;"
+        stat9div2.style = "display: inline; margin-left: auto;"
+        const stat10div1 = document.createElement('div')
+        const stat10div2 = document.createElement('div')
+        stat10div1.style = "display: inline; padding-left: 5px;"
+        stat10div2.style = "display: inline; margin-left: auto;"
+        const stat11div1 = document.createElement('div')
+        const stat11div2 = document.createElement('div')
+        stat11div1.style = "display: inline; padding-left: 5px;"
+        stat11div2.style = "display: inline; margin-left: auto;"
+        const stat12div1 = document.createElement('div')
+        const stat12div2 = document.createElement('div')
+        stat12div1.style = "display: inline; padding-left: 5px;"
+        stat12div2.style = "display: inline; margin-left: auto;"
+        const stat13div1 = document.createElement('div')
+        const stat13div2 = document.createElement('div')
+        stat13div1.style = "display: inline; padding-left: 5px;"
+        stat13div2.style = "display: inline; margin-left: auto;"
+
+        const playerImageDiv = document.createElement('div')
+        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px;"
+
+        const playerImage = document.createElement('img')
+        playerImage.src = this.team2players[number].imageUrl
+        playerImage.style = "width: 145px;"
+        playerImageDiv.append(playerImage)
+
+        stat1div1.append(document.createTextNode("Name: "))
+        stat1div2.append(this.team2players[number].name)
+
+        stat2div1.append(document.createTextNode("Number: "))
+        stat2div2.append(this.team2players[number].number)
 
         if (this.team2players[number].position !== "GK") {
-            const goalsDiv = document.createElement('div')
-            const goalsText = document.createTextNode("Goals: " + this.team2players[number].goals)
-            goalsDiv.style = " margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            goalsDiv.append(goalsText)
-            playerStats.append(goalsDiv)
 
-            const shotsDiv = document.createElement('div')
-            const shotsText = document.createTextNode("Shots: " + this.team2players[number].shots)
-            shotsDiv.style = " margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            shotsDiv.append(shotsText)
-            playerStats.append(shotsDiv)
+            stat3div1.append(document.createTextNode("Goals: "))
+            stat3div2.append(this.team2players[number].goals)
 
-            const foulsDiv = document.createElement('div')
-            const foulsText = document.createTextNode("Fouls Committed: " + this.team2players[number].foulsCommitted)
-            foulsDiv.style = " margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            foulsDiv.append(foulsText)
-            playerStats.append(foulsDiv)
+            stat4div1.append(document.createTextNode("Shots: "))
+            stat4div2.append(this.team2players[number].shots)
 
-            const yellowDiv = document.createElement('div')
-            const yellowText = document.createTextNode("Yellow Cards: " + this.team2players[number].yellowCards)
-            yellowDiv.style = " margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            yellowDiv.append(yellowText)
-            playerStats.append(yellowDiv)
+            stat5div1.append(document.createTextNode("Fouls Committed: "))
+            stat5div2.append(this.team2players[number].foulsCommitted)
 
-            const redDiv = document.createElement('div')
-            const redText = document.createTextNode("Red Cards: " + this.team2players[number].redCards)
-            redDiv.style = " margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            redDiv.append(redText)
-            playerStats.append(redDiv)
+            stat8div1.append(document.createTextNode("Expected Goals: "))
+            stat8div2.append(this.team2players[number].xGoals)
 
-            const xGoalsDiv = document.createElement('div')
-            const xGoalsText = document.createTextNode("Expected Goals: " + this.team2players[number].xGoals)
-            xGoalsDiv.style = " margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            xGoalsDiv.append(xGoalsText)
-            playerStats.append(xGoalsDiv)
         } else {
-            const goalsAgainstDiv = document.createElement('div')
-            const goalsAgainstText = document.createTextNode("Goals Against: " + this.team2players[number].goalsAgainst)
-            goalsAgainstDiv.style = " margin-top: 60px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            goalsAgainstDiv.append(goalsAgainstText)
-            playerStats.append(goalsAgainstDiv)
 
-            const shotsAgainstDiv = document.createElement('div')
-            const shotsAgainstText = document.createTextNode("Shots Against: " + this.team2players[number].shotsAgainst)
-            shotsAgainstDiv.style = " margin-top: 80px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            shotsAgainstDiv.append(shotsAgainstText)
-            playerStats.append(shotsAgainstDiv)
+            stat3div1.append(document.createTextNode("Goals Against: "))
+            stat3div2.append(this.team2players[number].goalsAgainst)
 
-            const savesDiv = document.createElement('div')
-            const savesText = document.createTextNode("Saves: " + this.team2players[number].saves)
-            savesDiv.style = " margin-top: 100px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            savesDiv.append(savesText)
-            playerStats.append(savesDiv)
+            stat4div1.append(document.createTextNode("Shots Against: "))
+            stat4div2.append(this.team2players[number].shotsAgainst)
 
-            const yellowDiv = document.createElement('div')
-            const yellowText = document.createTextNode("Yellow Cards: " + this.team2players[number].yellowCards)
-            yellowDiv.style = " margin-top: 120px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            yellowDiv.append(yellowText)
-            playerStats.append(yellowDiv)
+            stat5div1.append(document.createTextNode("Saves: "))
+            stat5div2.append(this.team2players[number].saves)
 
-            const redDiv = document.createElement('div')
-            const redText = document.createTextNode("Red Cards: " + this.team2players[number].redCards)
-            redDiv.style = " margin-top: 140px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            redDiv.append(redText)
-            playerStats.append(redDiv)
-
-            const xGoalsAgainstDiv = document.createElement('div')
-            const xGoalsAgainstText = document.createTextNode("Expected Goals Against: " + this.team2players[number].xGoalsAgainst)
-            xGoalsAgainstDiv.style = " margin-top: 160px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            xGoalsAgainstDiv.append(xGoalsAgainstText)
-            playerStats.append(xGoalsAgainstDiv)
+            stat8div1.append(document.createTextNode("Expected Goals Against: "))
+            stat8div2.append(this.team2players[number].xGoalsAgainst)
         }
 
-        const positionDiv = document.createElement('div')
-        const positionText = document.createTextNode("Position: " + this.team2players[number].position)
-        positionDiv.style = "margin-top: 180px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        positionDiv.append(positionText)
-        playerStats.append(positionDiv)
+        stat6div1.append(document.createTextNode("Yellow Cards: "))
+        stat6div2.append(this.team2players[number].yellowCards)
+
+        stat7div1.append(document.createTextNode("Red Cards: "))
+        stat7div2.append(this.team2players[number].redCards)
+
+        stat9div1.append(document.createTextNode("Position: "))
+        stat9div2.append(this.team2players[number].position)
 
         if (ratingsEnabled === true) {
-            const ratingDiv = document.createElement('div')
-            const ratingText = document.createTextNode("Player rating: " + this.team2players[number].rating)
-            ratingDiv.style = "margin-top: 220px; width: 401px: height: 20px; text-align: left; position: absolute;"
-            ratingDiv.append(ratingText)
-            playerStats.append(ratingDiv)
+
+            stat11div1.append(document.createTextNode("Rating: "))
+            stat11div2.append(this.team2players[number].rating)
         }
 
-        const oldPlayerstats = document.querySelector("#team2playerstats")
-        if (oldPlayerstats === null) {
-            this.infoBox.appendChild(playerStats)
+        stat1Div.append(stat1div1)
+        stat1Div.append(stat1div2)
+        stat2Div.append(stat2div1)
+        stat2Div.append(stat2div2)
+        stat3Div.append(stat3div1)
+        stat3Div.append(stat3div2)
+        stat4Div.append(stat4div1)
+        stat4Div.append(stat4div2)
+        stat5Div.append(stat5div1)
+        stat5Div.append(stat5div2)
+        stat6Div.append(stat6div1)
+        stat6Div.append(stat6div2)
+        stat7Div.append(stat7div1)
+        stat7Div.append(stat7div2)
+        stat8Div.append(stat8div1)
+        stat8Div.append(stat8div2)
+        stat9Div.append(stat9div1)
+        stat9Div.append(stat9div2)
+        stat10Div.append(stat10div1)
+        stat10Div.append(stat10div2)
+        stat11Div.append(stat11div1)
+        stat11Div.append(stat11div2)
+        stat12Div.append(stat12div1)
+        stat12Div.append(stat12div2)
+        stat13Div.append(stat13div1)
+        stat13Div.append(stat13div2)
+
+        stat1Container.append(stat1Div)
+        stat2Container.append(stat2Div)
+        stat3Container.append(stat3Div)
+        stat4Container.append(stat4Div)
+        stat5Container.append(stat5Div)
+        stat6Container.append(stat6Div)
+        stat7Container.append(stat7Div)
+        stat8Container.append(stat8Div)
+        stat9Container.append(stat9Div)
+        stat10Container.append(stat10Div)
+        stat11Container.append(stat11Div)
+        stat12Container.append(stat12Div)
+        stat13Container.append(stat13Div)
+
+        playerStatsDiv.append(stat1Container)
+        playerStatsDiv.append(stat2Container)
+        playerStatsDiv.append(stat3Container)
+        playerStatsDiv.append(stat4Container)
+        playerStatsDiv.append(stat5Container)
+        playerStatsDiv.append(stat6Container)
+        playerStatsDiv.append(stat7Container)
+        playerStatsDiv.append(stat8Container)
+        playerStatsDiv.append(stat9Container)
+        playerStatsDiv.append(stat10Container)
+        playerStatsDiv.append(stat11Container)
+        playerStatsDiv.append(stat12Container)
+        playerStatsDiv.append(stat13Container)
+
+        playerStatsDiv.id = "player stats div"
+        playerStatsContainer.append(playerStatsDiv)
+        playerImageDiv.id = "player image div"
+        playerStatsContainer.append(playerImageDiv)
+
+        const oldPlayerstats = document.querySelector("#team2playerStats")
+        if (oldPlayerstats == null) {
+            this.infoBox.appendChild(playerStatsContainer)
         } else {
-            this.infoBox.replaceChild(playerStats, oldPlayerstats)
+            this.infoBox.replaceChild(playerStatsContainer, oldPlayerstats)
         }
+
     },
 
     setTeam1goals: function (playerNumber, numGoals) {
