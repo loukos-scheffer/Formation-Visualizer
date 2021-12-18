@@ -254,10 +254,14 @@ FormationVisualizer.prototype = {
         newDiv.append(player)
 
         const nameDiv = document.createElement('div')
-        const playerName = document.createTextNode(lastName)
+        const playerName = document.createTextNode(lastName + " ")
         nameDiv.style = "color: white; font-size: 9px; width: 60px; text-align: center;"
         nameDiv.append(playerName)
+        const infoDiv = document.createElement('div')
+        infoDiv.style = "display: inline-flex;"
+        infoDiv.id = "team1player" + number + "matchinfo"
         newDiv.append(nameDiv)
+        nameDiv.append(infoDiv)
 
         const pitch = this.pitch
         pitch.append(newDiv)
@@ -338,11 +342,16 @@ FormationVisualizer.prototype = {
             this.showPlayerStatsTeam2(number, ratingsEnabled)
         });
         newDiv.append(player)
+
         const nameDiv = document.createElement('div')
-        const playerName = document.createTextNode(lastName)
+        const playerName = document.createTextNode(lastName + " ")
         nameDiv.style = "color: white; font-size: 9px; width: 60px; text-align: center;"
         nameDiv.append(playerName)
+        const infoDiv = document.createElement('div')
+        infoDiv.style = "display: inline-flex;"
+        infoDiv.id = "team2player" + number + "matchinfo"
         newDiv.append(nameDiv)
+        nameDiv.append(infoDiv)
 
         const pitch = this.pitch
         pitch.append(newDiv)
@@ -913,6 +922,46 @@ FormationVisualizer.prototype = {
         } else {
             this.infoBox.replaceChild(playerStatsContainer, oldPlayerstats)
         }
+
+    },
+
+    renderTeam1Yellow: function (playerNumber, yellowBool){
+        const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
+
+        const yellowCard = document.createElement('div')
+        yellowCard.style = "margin-left: 2px; height: 8px; width: 5px; background-color: yellow;"
+
+        infoDiv.append(yellowCard)
+
+    },
+
+    renderTeam2Yellow: function (playerNumber, yellowBool){
+        const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
+
+        const yellowCard = document.createElement('div')
+        yellowCard.style = "margin-left: 2px; height: 8px; width: 5px; background-color: yellow;"
+
+        infoDiv.append(yellowCard)
+
+    },
+
+    renderTeam1Red: function (playerNumber, yellowBool){
+        const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
+
+        const redCard = document.createElement('div')
+        redCard.style = "margin-left: 2px; height: 8px; width: 5px; background-color: red;"
+
+        infoDiv.append(redCard)
+
+    },
+
+    renderTeam2Red: function (playerNumber, yellowBool){
+        const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
+
+        const redCard = document.createElement('div')
+        redCard.style = "margin-left: 2px; height: 8px; width: 5px; background-color: red;"
+
+        infoDiv.append(redCard)
 
     },
 

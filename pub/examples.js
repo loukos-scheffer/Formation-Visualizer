@@ -36,10 +36,10 @@ fv2.addPlayerTeam1("LW", "Bryan", "Gil" , 11, true, "https://wolves-cdn.azureedg
 fv2.setTeam1PlayerStats(11, 1, "90 minutes", 0, 0, 1, 0, 1.3, 9, 0, 1, 0, 0)
 fv2.addPlayerTeam1("RW", "Steven", "Bergwijn" , 24, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
 fv2.setTeam1PlayerStats(24, 0, "90 minutes", 0, 0, 1, 0, 1.5, 8, 0, 1, 0, 0)
-fv2.addPlayerTeam1("CF", "Harry", "Kane" , 10, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
+fv2.addPlayerTeam1("CF", "Harry", "Kane" , 10, true, "https://tot-tmp.azureedge.net/media/40873/firstteam_harrykane_2021_22.png?anchor=center&mode=crop&width=500")
 fv2.setTeam1PlayerStats(10, 1, "27 minutes", 0, 0, 3, 0, 1.5, 8, 0, 1, 0, 0)
 
-fv2.addPlayerTeam2("GK", "Milan", "Borjan" , 18, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
+fv2.addPlayerTeam2("GK", "Milan", "Borjan" , 18, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/Milan-Right%20copy.png")
 fv2.setTeam2PlayerStats(18, 0, "90 minutes", 3, 9, 0, 4.0, 0, 10, 6, 2, 0, 0)
 fv2.addPlayerTeam2("LCB", "Kamal", "Miller" , 4, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
 fv2.setTeam2PlayerStats(4, 0, "90 minutes", 0, 0, 0, 0, 0, 7, 0, 1, 0, 0)
@@ -65,6 +65,11 @@ fv2.setTeam2PlayerStats(20, 2, "90 minutes", 0, 0, 2, 0, 1.1, 10, 0, 2, 0, 0)
 
 fv2.showPlayerStatsTeam1(10, false)
 fv2.showPlayerStatsTeam2(18, false)
+
+fv2.renderTeam1Yellow(11, true)
+fv2.renderTeam1Red(11, true)
+fv2.renderTeam2Yellow(11, true)
+fv2.renderTeam2Red(11, true)
 
 console.log(fv2.getTeam1Players())
 console.log(fv2.getTeam2Players())
