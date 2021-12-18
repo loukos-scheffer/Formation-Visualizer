@@ -43,27 +43,27 @@ FormationVisualizer.prototype = {
 
         const topTouchline = document.createElement('div')
         topTouchline.id = "top touchline"
-        topTouchline.style = "width: 782px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 10px; position: absolute;"
+        topTouchline.style = "width: 782px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 10px; position: absolute;"
         pitch.append(topTouchline)
 
         const bottomTouchline = document.createElement('div')
         bottomTouchline.id = "bottom touchline"
-        bottomTouchline.style = "width: 782px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 490px; position: absolute;"
+        bottomTouchline.style = "width: 782px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 490px; position: absolute;"
         pitch.append(bottomTouchline)
 
         const leftEndline = document.createElement('div')
         leftEndline.id = "left endline"
-        leftEndline.style = "width: 2px; height: 480px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 10px; position: absolute;"
+        leftEndline.style = "width: 2px; height: 480px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 10px; position: absolute;"
         pitch.append(leftEndline)
 
         const rightEndline = document.createElement('div')
         rightEndline.id = "right endline"
-        rightEndline.style = "width: 2px; height: 480px; margin: 0px; background-color: White; margin-left: 790px; margin-top: 10px; position: absolute;"
+        rightEndline.style = "width: 2px; height: 480px; margin: 0px; background-color:  #989da3; margin-left: 790px; margin-top: 10px; position: absolute;"
         pitch.append(rightEndline)
 
         const leftArc = document.createElement('div')
         leftArc.id = "penalty arc"
-        leftArc.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 27px; margin-top: 166px; background-color: White; position: absolute;'
+        leftArc.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 27px; margin-top: 166px; background-color:  #989da3; position: absolute;'
         pitch.append(leftArc)
 
         const leftArcGreen = document.createElement('div')
@@ -78,7 +78,7 @@ FormationVisualizer.prototype = {
 
         const rightArc = document.createElement('div')
         rightArc.id = "penalty arc"
-        rightArc.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 607px; margin-top: 166px; background-color: White; position: absolute;'
+        rightArc.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 607px; margin-top: 166px; background-color:  #989da3; position: absolute;'
         pitch.append(rightArc)
 
         const rightArcGreen = document.createElement('div')
@@ -93,67 +93,67 @@ FormationVisualizer.prototype = {
 
         const rightGoalAreaLine1 = document.createElement('div')
         rightGoalAreaLine1.id = "right goal area line 1"
-        rightGoalAreaLine1.style = "width: 2px; height: 100px; margin: 0px; background-color: White; margin-left: 740px; margin-top: 200px; position: absolute;"
+        rightGoalAreaLine1.style = "width: 2px; height: 100px; margin: 0px; background-color:  #989da3; margin-left: 740px; margin-top: 200px; position: absolute;"
         pitch.append(rightGoalAreaLine1)
 
         const rightGoalAreaLine2 = document.createElement('div')
         rightGoalAreaLine2.id = "right goal area line 2"
-        rightGoalAreaLine2.style = "width: 50px; height: 2px; margin: 0px; background-color: White; margin-left: 740px; margin-top: 200px; position: absolute;"
+        rightGoalAreaLine2.style = "width: 50px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 740px; margin-top: 200px; position: absolute;"
         pitch.append(rightGoalAreaLine2)
 
         const rightGoalAreaLine3 = document.createElement('div')
         rightGoalAreaLine3.id = "right goal area line 1"
-        rightGoalAreaLine3.style = "width: 50px; height: 2px; margin: 0px; background-color: White; margin-left: 740px; margin-top: 300px; position: absolute;"
+        rightGoalAreaLine3.style = "width: 50px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 740px; margin-top: 300px; position: absolute;"
         pitch.append(rightGoalAreaLine3)
 
         const leftGoalAreaLine1 = document.createElement('div')
         leftGoalAreaLine1.id = "left goal area line 1"
-        leftGoalAreaLine1.style = "width: 2px; height: 100px; margin: 0px; background-color: White; margin-left: 60px; margin-top: 200px; position: absolute;"
+        leftGoalAreaLine1.style = "width: 2px; height: 100px; margin: 0px; background-color:  #989da3; margin-left: 60px; margin-top: 200px; position: absolute;"
         pitch.append(leftGoalAreaLine1)
 
         const leftGoalAreaLine2 = document.createElement('div')
         leftGoalAreaLine2.id = "left goal area line 2"
-        leftGoalAreaLine2.style = "width: 50px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 200px; position: absolute;"
+        leftGoalAreaLine2.style = "width: 50px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 200px; position: absolute;"
         pitch.append(leftGoalAreaLine2)
 
         const leftGoalAreaLine3 = document.createElement('div')
         leftGoalAreaLine3.id = "left goal area line 1"
-        leftGoalAreaLine3.style = "width: 52px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 300px; position: absolute;"
+        leftGoalAreaLine3.style = "width: 52px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 300px; position: absolute;"
         pitch.append(leftGoalAreaLine3)
 
         const rightPenaltyAreaLine1 = document.createElement('div')
         rightPenaltyAreaLine1.id = "right Penalty area line 1"
-        rightPenaltyAreaLine1.style = "width: 2px; height: 250px; margin: 0px; background-color: White; margin-left: 640px; margin-top: 125px; position: absolute;"
+        rightPenaltyAreaLine1.style = "width: 2px; height: 250px; margin: 0px; background-color:  #989da3; margin-left: 640px; margin-top: 125px; position: absolute;"
         pitch.append(rightPenaltyAreaLine1)
 
         const rightPenaltyAreaLine2 = document.createElement('div')
         rightPenaltyAreaLine2.id = "right Penalty area line 2"
-        rightPenaltyAreaLine2.style = "width: 150px; height: 2px; margin: 0px; background-color: White; margin-left: 640px; margin-top: 125px; position: absolute;"
+        rightPenaltyAreaLine2.style = "width: 150px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 640px; margin-top: 125px; position: absolute;"
         pitch.append(rightPenaltyAreaLine2)
 
         const rightPenaltyAreaLine3 = document.createElement('div')
         rightPenaltyAreaLine3.id = "right Penalty area line 1"
-        rightPenaltyAreaLine3.style = "width: 152px; height: 2px; margin: 0px; background-color: White; margin-left: 640px; margin-top: 375px; position: absolute;"
+        rightPenaltyAreaLine3.style = "width: 152px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 640px; margin-top: 375px; position: absolute;"
         pitch.append(rightPenaltyAreaLine3)
 
         const leftPenaltyAreaLine1 = document.createElement('div')
         leftPenaltyAreaLine1.id = "left Penalty area line 1"
-        leftPenaltyAreaLine1.style = "width: 2px; height: 250px; margin: 0px; background-color: White; margin-left: 160px; margin-top: 125px; position: absolute;"
+        leftPenaltyAreaLine1.style = "width: 2px; height: 250px; margin: 0px; background-color:  #989da3; margin-left: 160px; margin-top: 125px; position: absolute;"
         pitch.append(leftPenaltyAreaLine1)
 
         const leftPenaltyAreaLine2 = document.createElement('div')
         leftPenaltyAreaLine2.id = "left Penalty area line 2"
-        leftPenaltyAreaLine2.style = "width: 150px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 125px; position: absolute;"
+        leftPenaltyAreaLine2.style = "width: 150px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 125px; position: absolute;"
         pitch.append(leftPenaltyAreaLine2)
 
         const leftPenaltyAreaLine3 = document.createElement('div')
         leftPenaltyAreaLine3.id = "left Penalty area line 1"
-        leftPenaltyAreaLine3.style = "width: 152px; height: 2px; margin: 0px; background-color: White; margin-left: 10px; margin-top: 375px; position: absolute;"
+        leftPenaltyAreaLine3.style = "width: 152px; height: 2px; margin: 0px; background-color:  #989da3; margin-left: 10px; margin-top: 375px; position: absolute;"
         pitch.append(leftPenaltyAreaLine3)
 
         const centreCircle = document.createElement('div')
         centreCircle.id = "center circle"
-        centreCircle.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 316px; margin-top: 164px; background-color: White; position: absolute;'
+        centreCircle.style = 'width: 166px; height: 166px; border-radius: 50%; margin-left: 316px; margin-top: 164px; background-color:  #989da3; position: absolute;'
         pitch.append(centreCircle)
 
         const centreCircleGreen = document.createElement('div')
@@ -164,7 +164,7 @@ FormationVisualizer.prototype = {
 
         const centreLine = document.createElement('div')
         centreLine.id = "centre line"
-        centreLine.style = "width: 2px; height: 482px; margin: 0px; background-color: White; margin-left: 399px; margin-top: 10px; position: absolute;"
+        centreLine.style = "width: 2px; height: 482px; margin: 0px; background-color:  #989da3; margin-left: 399px; margin-top: 10px; position: absolute;"
         pitch.append(centreLine)
 
 
@@ -573,11 +573,11 @@ FormationVisualizer.prototype = {
         stat13div2.style = "display: inline; margin-left: auto;"
 
         const playerImageDiv = document.createElement('div')
-        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px;"
+        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px; max-height: 200px;"
 
         const playerImage = document.createElement('img')
         playerImage.src = this.team1players[number].imageUrl
-        playerImage.style = "width: 145px;"
+        playerImage.style = "width: 145px; max-height: 215px;"
         playerImageDiv.append(playerImage)
 
         stat1div1.append(document.createTextNode("Name: "))
@@ -818,11 +818,11 @@ FormationVisualizer.prototype = {
         stat13div2.style = "display: inline; margin-left: auto;"
 
         const playerImageDiv = document.createElement('div')
-        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px;"
+        playerImageDiv.style = "margin-top: 40px; margin-left: 250px; padding: 3px: width: 145px; "
 
         const playerImage = document.createElement('img')
         playerImage.src = this.team2players[number].imageUrl
-        playerImage.style = "width: 145px;"
+        playerImage.style = "width: 145px; max-height: 215px;"
         playerImageDiv.append(playerImage)
 
         stat1div1.append(document.createTextNode("Name: "))
