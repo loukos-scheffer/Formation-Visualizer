@@ -944,7 +944,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam1Yellow: function (playerNumber, yellowBool){
+    renderTeam1Yellow: function (playerNumber){
         const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
 
         const yellowCard = document.createElement('div')
@@ -954,7 +954,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam2Yellow: function (playerNumber, yellowBool){
+    renderTeam2Yellow: function (playerNumber){
         const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
 
         const yellowCard = document.createElement('div')
@@ -964,7 +964,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam1Red: function (playerNumber, yellowBool){
+    renderTeam1Red: function (playerNumber){
         const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
 
         const redCard = document.createElement('div')
@@ -974,7 +974,7 @@ FormationVisualizer.prototype = {
 
     },
 
-    renderTeam2Red: function (playerNumber, yellowBool){
+    renderTeam2Red: function (playerNumber){
         const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
 
         const redCard = document.createElement('div')
@@ -982,6 +982,30 @@ FormationVisualizer.prototype = {
 
         infoDiv.append(redCard)
 
+    },
+
+    renderTeam1Goal: function (playerNumber){
+        const infoDiv = document.querySelector("#team1player" + playerNumber + "matchinfo")
+
+        const goal = document.createElement('div')
+        goal.style = "margin-left: 2px; height: 8px; width: 5px; background-color: green; border-radius: 50%;"
+        const goalimg = document.createElement('img')
+        goalimg.src = "https://image.similarpng.com/very-thumbnail/2020/09/Soccer-Ball-on-transparent-background-PNG.png"
+        goalimg.style = "height: 9px; border-radius: 50%;"
+        goal.append(goalimg)
+        infoDiv.append(goal)
+    },
+
+    renderTeam2Goal: function (playerNumber){
+        const infoDiv = document.querySelector("#team2player" + playerNumber + "matchinfo")
+
+        const goal = document.createElement('div')
+        goal.style = "margin-left: 2px; height: 8px; width: 5px; background-color: green; border-radius: 50%;"
+        const goalimg = document.createElement('img')
+        goalimg.src = "https://image.similarpng.com/very-thumbnail/2020/09/Soccer-Ball-on-transparent-background-PNG.png"
+        goalimg.style = "height: 9px; border-radius: 50%;"
+        goal.append(goalimg)
+        infoDiv.append(goal)
     },
 
     setTeam1goals: function (playerNumber, numGoals) {
