@@ -5,6 +5,8 @@ function FormationVisualizer() {
     this.team1players = {}
     this.team2players = {}
     this.infoBox = null
+    this.team1color = null
+    this.team2color = null
     this.positions = [
         //Standard abbreviations for positions
         "GK", //Goalkeeper
@@ -31,16 +33,13 @@ function FormationVisualizer() {
 
 FormationVisualizer.prototype = {
 
-    drawPitch: function (infobox, team1, team2) {
+    drawPitch: function (infobox, team1, team2, team1score, team2score, team1color, team2color, scoringEnabled, htmlElem) {
+        this.team1color = team1color
+        this.team2color = team2color
+
         const pitch = document.createElement('div')
         pitch.id = "pitch"
         pitch.style = "width: 802px; height: 502px; margin: 10px; background-color: Green;"
-        const body = document.querySelector("body")
-
-        // const grassCut1 = document.createElement('div')
-        // grassCut1.id = "grass cut 1"
-        // grassCut1.style = "width: 100px; height: 500px; margin-left: 100px; background-color: #90ee90; position: absolute;"
-        // pitch.append(grassCut1)
 
         const topTouchline = document.createElement('div')
         topTouchline.id = "top touchline"
@@ -168,11 +167,17 @@ FormationVisualizer.prototype = {
         centreLine.style = "width: 2px; height: 482px; margin: 0px; background-color: White; margin-left: 399px; margin-top: 10px; position: absolute;"
         pitch.append(centreLine)
 
-        body.append(pitch)
-        this.pitch = pitch
+
 
         if (infobox === true) {
-            this.drawInfoBox(team1, team2)
+            const infoboxPitchWrapper = document.createElement('div')
+            infoboxPitchWrapper.append(pitch)
+            this.drawInfoBox(team1, team2, team1score, team2score, scoringEnabled, infoboxPitchWrapper)
+            htmlElem.append(infoboxPitchWrapper)
+            this.pitch = pitch
+        }else{
+            htmlElem.append(pitch)
+            this.pitch = pitch
         }
     },
 
@@ -186,61 +191,61 @@ FormationVisualizer.prototype = {
         newDiv.id = name
         if (position === "GK") {
             newDiv.style = "margin-top: 240px; margin-left: 5px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LB") {
             newDiv.style = "margin-top: 50px; margin-left: 50px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LCB") {
             newDiv.style = "margin-top: 150px; margin-left: 50px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CCB") {
             newDiv.style = "margin-top: 240px; margin-left: 50px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RCB") {
             newDiv.style = "margin-top: 330px; margin-left: 50px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RB") {
             newDiv.style = "margin-top: 430px; margin-left: 50px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LWB") {
             newDiv.style = "margin-top: 50px; margin-left: 150px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RWB") {
             newDiv.style = "margin-top: 430px; margin-left: 150px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CDM") {
             newDiv.style = "margin-top: 240px; margin-left: 150px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CAM") {
             newDiv.style = "margin-top: 240px; margin-left: 280px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LCM") {
             newDiv.style = "margin-top: 180px; margin-left: 215px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RCM") {
             newDiv.style = "margin-top: 300px; margin-left: 215px;  position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LM") {
             newDiv.style = "margin-top: 50px; margin-left: 215px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RM") {
             newDiv.style = "margin-top: 430px; margin-left: 215px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LW") {
             newDiv.style = "margin-top: 50px; margin-left: 280px;  position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RW") {
             newDiv.style = "margin-top: 430px; margin-left: 280px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LST") {
             newDiv.style = "margin-top: 180px; margin-left: 340px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RST") {
             newDiv.style = "margin-top: 300px; margin-left: 340px;  position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CF") {
             newDiv.style = "margin-top: 240px; margin-left: 340px; position: absolute;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Aqua; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         }
 
         this.team1players[number] = this.createPlayer(position,firstName + " " + lastName, number, imageUrl)
@@ -279,61 +284,61 @@ FormationVisualizer.prototype = {
         newDiv.id = name
         if (position === "GK") {
             newDiv.style = "margin-top: 240px; margin-left: 740px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RB") {
             newDiv.style = "margin-top: 50px; margin-left: 690px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RCB") {
             newDiv.style = "margin-top: 150px; margin-left: 690px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CCB") {
             newDiv.style = "margin-top: 240px; margin-left: 690px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LCB") {
             newDiv.style = "margin-top: 330px; margin-left: 690px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LB") {
             newDiv.style = "margin-top: 430px; margin-left: 690px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RWB") {
             newDiv.style = "margin-top: 50px; margin-left: 590px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LWB") {
             newDiv.style = "margin-top: 430px; margin-left: 590px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CDM") {
             newDiv.style = "margin-top: 240px; margin-left: 590px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CAM") {
             newDiv.style = "margin-top: 240px; margin-left: 460px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RCM") {
             newDiv.style = "margin-top: 180px; margin-left: 525px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LCM") {
             newDiv.style = "margin-top: 300px; margin-left: 525px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RM") {
             newDiv.style = "margin-top: 50px; margin-left: 525px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LM") {
             newDiv.style = "margin-top: 430px; margin-left: 525px;  position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RW") {
             newDiv.style = "margin-top: 50px; margin-left: 460px;  position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LW") {
             newDiv.style = "margin-top: 430px; margin-left: 460px;  position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%; background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%; background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "RST") {
             newDiv.style = "margin-top: 180px; margin-left: 400px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "LST") {
             newDiv.style = "margin-top: 300px; margin-left: 400px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         } else if (position === "CF") {
             newDiv.style = "margin-top: 240px; margin-left: 400px; position: absolute; text: center;"
-            player.style = "width: 20px; height: 20px; border-radius: 50%;  background-color: Pink; margin-left: 20px; display: flex; align-items: center; justify-content: center;"
+            player.style = `width: 20px; height: 20px; border-radius: 50%;  background-color: ${this.team1color}; margin-left: 20px; display: flex; align-items: center; justify-content: center;`
         }
 
         player.textContent = number
@@ -393,25 +398,39 @@ FormationVisualizer.prototype = {
         });
     },
 
-    drawInfoBox: function (team1, team2) {
+    drawInfoBox: function (team1, team2, team1score, team2score, scoringEnabled, htmlElem) {
         const infoBox = document.createElement('div')
-        infoBox.style = "width: 802px; height: 300px; border-width: 2px; border-style: solid; border-color: black; margin-left: 10px;"
+        infoBox.style = "width: 802px; height: 300px; border-width: 2px; border-style: solid; border-color: grey; margin-left: 10px; border-radius: 25px;"
         this.infoBox = infoBox
+
+        const teamsDiv = document.createElement('div')
+        teamsDiv.style = "width: 802px; height: 20px; display: inline-flex;"
+
+        const scoreDiv = document.createElement('div')
+        if (scoringEnabled){
+            const score = document.createTextNode(team1score + " - "  + team2score)
+            scoreDiv.append(score)
+        }
+        scoreDiv.style = "width: 52px;text-align: center; font: robinson; font-size: 18px;"
+
 
         const team1NameDiv = document.createElement('div')
         const team1Text = document.createTextNode(team1)
         const team2NameDiv = document.createElement('div')
         const team2Text = document.createTextNode(team2)
+
         team2NameDiv.append(team2Text)
         team1NameDiv.append(team1Text)
-        team1NameDiv.style = "margin-left: 50px; width: 401px: height: 20px; text-align: left; position: absolute;"
-        team2NameDiv.style = "margin-left: 401px; width: 401px: height: 20px; text-align: right; position: absolute;"
+        team1NameDiv.style = "padding: auto; width: auto: height: 20px; font-size: 14pt; text-align: center; margin-left: auto; margin-right: auto;"
+        team2NameDiv.style = "padding: auto; width: auto: height: 20px; font-size: 14pt; text-align: center; margin-right: auto; margin-left: auto;"
 
-        infoBox.append(team1NameDiv)
-        infoBox.append(team2NameDiv)
+        teamsDiv.append(team1NameDiv)
+        teamsDiv.append(scoreDiv)
+        teamsDiv.append(team2NameDiv)
 
-        const body = document.querySelector("body")
-        body.append(infoBox)
+        infoBox.append(teamsDiv)
+
+        htmlElem.append(infoBox)
     },
 
     createPlayer: function (position, name, number, imageUrl) {

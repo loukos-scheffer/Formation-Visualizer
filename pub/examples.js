@@ -12,10 +12,15 @@ const demo2text = document.createTextNode('This is a demonstration of how the li
     ' boolean to false. An example of ratings being disabled is also shown immediately when the page loads.')
 const demo2p = document.createElement('p')
 demo2p.append(demo2text)
-demo2p.style= "text-align: center; padding-left: 200px; padding-right: 200px;"
+demo2p.style= "text-align: center; width: 802px; margin: auto; "
 body.append(demo2p)
 
-fv2.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team")
+const pitch2 = document.createElement('div')
+pitch2.id = "football pitch"
+pitch2.style = "justify-content: center; display: flex;"
+body.append(pitch2)
+
+fv2.drawPitch(true, "Tottenham Hotspur FC", "Canadian National Team", 2, 3, "Aqua", "Pink",true, pitch2)
 fv2.addPlayerTeam1("GK", "Hugo", "Lloris" , 1, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
 fv2.setTeam1PlayerStats(1, 0, "90 minutes", 4, 9, 0, 4.3, 0, 9, 5, 2, 0, 0)
 fv2.addPlayerTeam1("LB", "Danny",  "Rose" , 3, true, "https://wolves-cdn.azureedge.net/images/default-player.png")
@@ -81,7 +86,7 @@ const demo3text = document.createTextNode('This is a second demonstration of how
     ' coaching or team organization app. A developer could allow users to setup in a variety of formations and player ' +
     'arrangements. For this demo the infobox is turned off, but it could be turned on depending upon the team usage.')
 demo3p.append(demo3text)
-demo3p.style= "text-align: center; padding-left: 200px; padding-right: 200px;"
+demo3p.style= "text-align: center; width: 802px; margin: auto; padding-top: 20px; padding-bottom: 10px;"
 body.append(demo3p)
 
 let players = [
@@ -105,6 +110,7 @@ let players = [
     {firstName: "John", lastName: "Smith", number: 18}
 ]
 const teamDemo = document.createElement('div')
+teamDemo.style = "justify-content: center; display: flex;"
 const playerSelector = document.createElement('select')
 
 for (let i = 0; i < players.length; i++){
@@ -138,4 +144,9 @@ teamDemo.append(submitButton)
 
 body.append(teamDemo)
 
-fv3.drawPitch(false, "Sharks", "Eagles")
+const pitch3 = document.createElement('div')
+pitch3.id = "football pitch"
+pitch3.style = "justify-content: center; display: flex;"
+body.append(pitch3)
+
+fv3.drawPitch(false, "Sharks", "Eagles", 0, 0, "red", "yellow", false, pitch3)
