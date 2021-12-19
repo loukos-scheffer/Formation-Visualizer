@@ -5,54 +5,73 @@
     <title>Formation Visualizer demo</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 </head>
-<body style="background-color: #3d4147; font-family: poppins; width: 100%; min-height: 100%; margin: 0px;" text="#f0f8ff">
+<body style="background-color: dimgray; font-family: poppins; width: 100%; min-height: 100%; margin: 0px;"
+      text="#f0f8ff">
 <div
         style="background-color: #2d3748;	z-index: 20; padding-top: 5px; padding-bottom: 5px; width: 100%; display: inline-flex; top: 0px; right: 0px; left: 0px; bottom: 0px;">
-    <!--            className="shadow-lg backdrop-filter backdrop-blur-lg fixed top-0 left-0 right-0"-->
     <div style="width: 300px; font-size: x-large; font-weight: 600; text-align: center;">
-        <a rel="next" href = "index.html" style="color: inherit; text-decoration: none;" >
+        <a rel="next" href="index.html" style="color: inherit; text-decoration: none;">
             Formation Visualizer
         </a>
     </div>
     <div style="width: 250px; font-size: x-large; font-weight: 600; margin-left: auto; text-align: center;">
-        <a rel="next" href = "examples.html" style="color: inherit; text-decoration: none;" >
+        <a rel="next" href="examples.html" style="color: inherit; text-decoration: none;">
             Example Usage
         </a>
     </div>
     <div style="width: 250px; font-size: x-large; font-weight: 600; text-align: center;">
-        <a rel="next" href = "api.html" style="color: inherit; text-decoration: none;" >
+        <a rel="next" href="api.html" style="color: inherit; text-decoration: none;">
             Getting Started
         </a>
     </div>
 </div>
 <div style="position: relative">
-    <div style="position: absolute;	top: 0px; right: 0px; bottom: 0px; left: 0px;  display: flex; " >
-        <div style="margin-left: auto; margin-right: auto; background-color: #1a1d21; border-radius: 25px; width: 900px; margin-top: 50px;">
-            <p style="font-size: xxx-large; text-align: center; margin: 0px;" >
+    <div style="position: absolute;	top: 0px; right: 0px; bottom: 0px; left: 0px;  display: flex; ">
+        <div style="margin-left: auto; margin-right: auto; background-color: #1a1d21; opacity: 0.96; border-radius: 25px; width: 900px; margin-top: 50px;">
+            <p style="font-size: xxx-large; text-align: center; margin: 0px;">
                 API Information
             </p>
             <div style="margin-left: 50px; margin-right: 50px;">
-            <p>To get started with FormationVisualizer first construct an instance of the object:</p>
-            <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">const fv = new FormationVisualizer() </code>
+                <h2 style="text-align: center">Getting Started</h2>
+                <p>To get started with FormationVisualizer first construct an instance of the object:</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">const fv = new FormationVisualizer() </code>
                 <p>You can then create a new pitch by calling <code>drawPitch</code> with the following parameters</p>
-                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.drawPitch(infobox, team1, team2, team1score, team2score, team1color,
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.drawPitch(infobox, team1, team2, team1score, team2score, team1color,
                     team2color, scoringEnabled, htmlElem) </code>
-                    <ul>
-                    <li><code>infobox</code> is a boolean that signifies whether the developer would like the infobox to be displayed (ex. 1) or not (ex.2).</li>
-                    <li><code>team1</code> is a string that represents the left side team name (ex. Tottenham Hotspur FC). If <code>infobox</code> is false, this can be null.</li>
-                    <li><code>team2</code> is a string that represents the left side team name (ex. Canadian National Team). If <code>infobox</code> is false, this can be null.</li>
-                    <li><code>team1score</code> is an int that represents the score of team 1. If <code>infobox</code> or <code>ratingsEnabled</code> is false, this can be null.</li>
-                    <li><code>team2score</code> is an int that represents the score of team 2. If <code>infobox</code> or <code>ratingsEnabled</code> is false, this can be null.</li>
-                    <li><code>team1color</code> is a string that represents the color of team 1 (ex. #1a1d21). This determines what color the player circles will be.</li>
-                    <li><code>team2color</code> is a string that represents the color of team 2 (ex. #1a1d21). This determines what color the player circles will be.</li>
-                    <li><code>ratingsEnabled</code> is a boolean that represents whether the developer would like the match score to be displayed in the infobox.</li>
-                    <li><code>htmlElem</code> is the HTML element that the pitch will be appended do.</li>
-                    </ul>
-                <p>At this point a player can be added to the pitch by utilizing <code>addPlayerTeam1</code> or <code>addPlayerTeam2</code> :</p>
-                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.addPlayerTeam1(position, firstName, lastName, number, ratingsEnabled, imageUrl)</code>
                 <ul>
-                    <li><code>position</code> is a string that represents the position of the player. The library supports the following positions:
-                        <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">"GK", //Goalkeeper
+                    <li><code>infobox</code> is a boolean that signifies whether the developer would like the infobox to
+                        be displayed (ex. 1) or not (ex.2).
+                    </li>
+                    <li><code>team1</code> is a string that represents the left side team name (ex. Tottenham Hotspur
+                        FC). If <code>infobox</code> is false, this can be null.
+                    </li>
+                    <li><code>team2</code> is a string that represents the left side team name (ex. Canadian National
+                        Team). If <code>infobox</code> is false, this can be null.
+                    </li>
+                    <li><code>team1score</code> is an int that represents the score of team 1. If <code>infobox</code>
+                        or <code>ratingsEnabled</code> is false, this can be null.
+                    </li>
+                    <li><code>team2score</code> is an int that represents the score of team 2. If <code>infobox</code>
+                        or <code>ratingsEnabled</code> is false, this can be null.
+                    </li>
+                    <li><code>team1color</code> is a string that represents the color of team 1 (ex. #1a1d21). This
+                        determines what color the player circles will be.
+                    </li>
+                    <li><code>team2color</code> is a string that represents the color of team 2 (ex. #1a1d21). This
+                        determines what color the player circles will be.
+                    </li>
+                    <li><code>ratingsEnabled</code> is a boolean that represents whether the developer would like the
+                        match score to be displayed in the infobox.
+                    </li>
+                    <li><code>htmlElem</code> is the HTML element that the pitch will be appended do.</li>
+                </ul>
+                <p>At this point a player can be added to the pitch by utilizing <code>addPlayerTeam1</code> or <code>addPlayerTeam2</code>
+                    :</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.addPlayerTeam1(position, firstName, lastName, number, ratingsEnabled, imageUrl)</code>
+                <ul>
+                    <li><code>position</code> is a string that represents the position of the player. The library
+                        supports the following positions:
+                        <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">"GK", //Goalkeeper
 "LB", //Left Back
 "LCB", //Left Centre Back
 "CCB", //Center Center Back
@@ -72,16 +91,111 @@
 "LST", //Left Striker
 "RST" //Right Striker</code>
                     </li>
-                    <li><code>firstName</code> is a string that represents the first name of the player (ex. Harry).</li>
-                    <li><code>lastName</code> is a string that represents the last name of the player (ex. Kane). </li>
-                    <li><code>number</code> is an int that represents the number of the player. It is recommended that a number of 1 or 2 digits is entered as is standard for numbers in the sport. Entering 3 or more digits will work as on rare occasion players are allowed to utilize numbers of such length, but the formatting is not optimized for such cases.</li>
-                    <li><code>ratingsEnabled</code> is an boolean that represents whether player ratings will show in the infobox.</li>
+                    <li><code>firstName</code> is a string that represents the first name of the player (ex. Harry).
+                    </li>
+                    <li><code>lastName</code> is a string that represents the last name of the player (ex. Kane).</li>
+                    <li><code>number</code> is an int that represents the number of the player. It is recommended that a
+                        number of 1 or 2 digits is entered as is standard for numbers in the sport. Entering 3 or more
+                        digits will work as on rare occasion players are allowed to utilize numbers of such length, but
+                        the formatting is not optimized for such cases.
+                    </li>
+                    <li><code>ratingsEnabled</code> is an boolean that represents whether player ratings will show in
+                        the infobox.
+                    </li>
                     <li><code>imageUrl</code> is a string that the URL of the players picture.</li>
                 </ul>
-                <p>The statistics of each player can be set using <code>setTeam1PlayerStats</code> or <code>setTeam2PlayerStats</code>:</p>
-                <code  style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.setTeam2PlayerStats(playerNumber, numGoals, numPlayed, numGoalsAgainst, numShotsAgainst, numShots,
+                <p>To set what players stats are showing in the infobox, develops can use the
+                    <code>showPlayerStatsTeam1</code> or <code>showPlayerStatsTeam2</code> functions </p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.showPlayerStatsTeam2(number, ratingsEnabled)</code>
+                <ul>
+                    <li><code>number</code> is the number of the player whose stats will be displayed.</li>
+                    <li><code>showRatings</code> is a boolean which determines whether the rating of the player will be
+                        displayed.
+                    </li>
+                    <li>This function is called everytime a player is clicked on if the infobox is enabled.</li>
+                </ul>
+                <p>To show a yellow card next to a players name a developer can use
+                    <code>renderTeam1Yellow</code> or <code>renderTeam2Yellow</code> functions.</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">fv.renderTeam1Yellow(playerNum)</code>
+                <ul>
+                    <li><code>number</code> is the number of the player who will have a yellow card displayed next to their name.</li>
+                    <li>This function is allowed to be called more than once to render multiple yellow cards in case a player recieves 2 yellows in a match or a developer wants to display yellows tracked over a whole season.</li>
+                </ul>
+                <p>To show a red card next to a players name a developer can use
+                    <code>renderTeam1Red</code> or <code>renderTeam2Red</code> functions.</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">fv.renderTeam1Yellow(playerNum)</code>
+                <ul>
+                    <li><code>number</code> is the number of the player who will have a red card displayed next to their name.</li>
+                    <li>This function is allowed to be called more than once to render multiple red cards in case a developer wants to display reds tracked over a whole season.</li>
+                </ul>
+                <p>To show a goal icon (soccer ball) next to a players name a developer can use
+                    <code>renderTeam1Goal</code> or <code>renderTeam2Goal</code> functions.</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 300px;">fv.renderTeam1Yellow(playerNum)</code>
+                <ul>
+                    <li><code>number</code> is the number of the player who will have a goal icon displayed next to their name.</li>
+                    <li>This function is allowed to be called more than once to render multiple goals.</li>
+                </ul>
+
+
+                    <h2 style="text-align: center">Setters and Getters</h2>
+                <p>The statistics of each player can be set using <code>setTeam1PlayerStats</code> or <code>setTeam2PlayerStats</code>:
+                </p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.setTeam2PlayerStats(playerNumber,
+                    numGoals, numPlayed, numGoalsAgainst, numShotsAgainst, numShots,
                     numxGoalsAgainst, numxGoals, numRating, numSaves, numFoulsCommitted, numRedCards,
                     numYellowCards)</code>
+                All are integers except for <code>numxGoalsAgainst</code> and <code>numxGoals</code> which are floats.
+                Each parameter sets the variable to that value.
+                <p>The following setters exist for setting the variable specified for the specific player.</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.setTeam1goals(playerNumber, numGoals)
+fv.setTeam2goals(playerNumber, numGoals)
+fv.setTeam1played(playerNumber, numPlayed)
+fv.setTeam2played(playerNumber, numPlayed)
+fv.setTeam1shots(playerNumber, numShots)
+fv.setTeam2shots(playerNumber, numShots)
+fv.setTeam1saves(playerNumber, numSaves)
+fv.setTeam2saves(playerNumber, numSaves)
+fv.setTeam1shotsAgainst(playerNumber, numShotsAgainst)
+fv.setTeam2shotsAgainst(playerNumber, numShotsAgainst)
+fv.setTeam1yellowCards(playerNumber, numYellowCards)
+fv.setTeam2yellowCards(playerNumber, numYellowCards)
+fv.setTeam1redCards(playerNumber, numRedCards)
+fv.setTeam2redCards(playerNumber, numRedCards)
+fv.setTeam1foulsCommitted(playerNumber, numFoulsCommitted)
+fv.setTeam2foulsCommitted(playerNumber, numFoulsCommitted)
+fv.setTeam1xGoals(playerNumber, numxGoals)
+fv.setTeam2xGoals(playerNumber, numxGoals)
+fv.setTeam1xGoalsAgainst(playerNumber, numxGoalsAgainst)
+fv.setTeam2xGoalsAgainst(playerNumber, numxGoalsAgainst)
+fv.setTeam1rating(playerNumber, numRating)
+fv.setTeam2rating(playerNumber, numRating)
+fv.setTeam1goalsAgainst(playerNumber, numGoalsAgainst)
+fv.setTeam2goalsAgainst(playerNumber, numGoalsAgainst)</code>
+                <p>The following getters exist for getting the variable specified for the specific player.</p>
+                <code style="margin: 0.5em; padding: 1em; text-align: left; white-space: pre; word-break: normal; word-wrap: normal; line-height: 1.5; border-radius: 5px; background-color: darkslategrey; display: block; width: 764px;">fv.getTeam1goals(playerNumber)
+fv.getTeam2goals(playerNumber)
+fv.getTeam1played(playerNumber)
+fv.getTeam2played(playerNumber)
+fv.getTeam1shots(playerNumber)
+fv.getTeam2shots(playerNumber)
+fv.getTeam1saves(playerNumber)
+fv.getTeam2saves(playerNumber)
+fv.getTeam1shotsAgainst(playerNumber)
+fv.getTeam2shotsAgainst(playerNumber)
+fv.getTeam1yellowCards(playerNumber)
+fv.getTeam2yellowCards(playerNumber)
+fv.getTeam1redCards(playerNumber)
+fv.getTeam2redCards(playerNumber)
+fv.getTeam1foulsCommitted(playerNumber)
+fv.getTeam2foulsCommitted(playerNumber)
+fv.getTeam1xGoals(playerNumber)
+fv.getTeam2xGoals(playerNumber)
+fv.getTeam1xGoalsAgainst(playerNumber)
+fv.getTeam2xGoalsAgainst(playerNumber)
+fv.getTeam1rating(playerNumber)
+fv.getTeam2rating(playerNumber)
+fv.getTeam1goalsAgainst(playerNumber)
+fv.getTeam2goalsAgainst(playerNumber)</code>
             </div>
         </div>
     </div>
@@ -89,6 +203,11 @@
             style="object-fit: cover; width: 100%;"
             src="https://images.unsplash.com/photo-1599158150601-1417ebbaafdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1936&q=80"
             alt="Football Stadium"
+    />
+    <img
+            style="object-fit: cover; width: 100%;"
+            src="https://images.unsplash.com/photo-1518605125802-006dcc629439?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+            alt="A different Football Stadium"
     />
 </div>
 </body>
