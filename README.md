@@ -52,6 +52,7 @@ At this point a player can be added to the pitch by utilizing addPlayerTeam1 or 
 - number is an int that represents the number of the player. It is recommended that a number of 1 or 2 digits is entered as is standard for numbers in the sport. Entering 3 or more digits will work as on rare occasion players are allowed to utilize numbers of such length, but the formatting is not optimized for such cases.
 - ratingsEnabled is an boolean that represents whether player ratings will show in the infobox.
 - imageUrl is a string that the URL of the players picture.
+- This function has error checking so that no two players can be placed in the same position, no more than 11 players can be placed on the field per team, and two players cannot be created on the same team if they share a number.
 
 To set what players stats are showing in the infobox, develops can use the showPlayerStatsTeam1 or showPlayerStatsTeam2 functions
 

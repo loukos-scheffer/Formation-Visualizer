@@ -38,7 +38,7 @@ fv2.setTeam1PlayerStats(29, 0, "90 minutes", 0, 0, 1, 0, 0, 7, 0, 2, 0, 0)
 fv2.addPlayerTeam1("RCM", "Pierre-Emile", "Højbjerg", 5, true, "https://tot-tmp.azureedge.net/media/40833/firstteam_pierreemilehojbjerg_2021_22.png?anchor=center&mode=crop&width=500")
 fv2.setTeam1PlayerStats(5, 0, "90 minutes", 0, 0, 0, 0, 0, 8, 0, 1, 0, 0)
 fv2.addPlayerTeam1("LW", "Bryan", "Gil", 11, true, "https://tot-tmp.azureedge.net/media/40816/firstteam_bryangil_2021_22.png?anchor=center&mode=crop&width=500")
-fv2.setTeam1PlayerStats(11, 1, "90 minutes", 0, 0, 1, 0, 1.3, 9, 0, 1, 0, 0)
+fv2.setTeam1PlayerStats(11, 1, "90 minutes", 0, 0, 1, 0, 1.3, 9, 0, 1, 1, 2)
 fv2.addPlayerTeam1("CAM", "Steven", "Bergwijn", 23, true, "https://tot-tmp.azureedge.net/media/40837/firstteam_stevenbergwijn_2021_22.png?anchor=center&mode=crop&width=500")
 fv2.setTeam1PlayerStats(23, 0, "90 minutes", 0, 0, 1, 0, 1.5, 8, 0, 1, 0, 0)
 fv2.addPlayerTeam1("CF", "Harry", "Kane", 10, true, "https://tot-tmp.azureedge.net/media/40873/firstteam_harrykane_2021_22.png?anchor=center&mode=crop&width=500")
@@ -51,19 +51,19 @@ fv2.setTeam2PlayerStats(4, 0, "90 minutes", 0, 0, 0, 0, 0, 7, 0, 1, 0, 0)
 fv2.addPlayerTeam2("CCB", "Steven", "Vitoria", 5, true, "https://canadasoccer.com/wp-content/uploads/csa_files/a46b9da0908cd49e61ac01560f99352b.jpg")
 fv2.setTeam2PlayerStats(5, 0, "90 minutes", 0, 0, 1, 0, 0.2, 6, 0, 2, 0, 0)
 fv2.addPlayerTeam2("RCB", "Alastair", "Johnston", 2, true, "https://www.canadasoccer.com/wp-content/uploads/csa_files/Headshot/Johnston_Alistair2021.jpg")
-fv2.setTeam2PlayerStats(2, 0, "90 minutes", 0, 0, 0, 0, 0, 8, 0, 0, 0, 0)
+fv2.setTeam2PlayerStats(2, 0, "90 minutes", 0, 0, 0, 0, 0, 8, 0, 0, 1, 0)
 fv2.addPlayerTeam2("LWB", "Richie", "Laryea", 22, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/Laryea-Right%20copy.png")
-fv2.setTeam2PlayerStats(22, 0, "90 minutes", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0)
+fv2.setTeam2PlayerStats(22, 0, "90 minutes", 0, 0, 0, 0, 0, 5, 0, 1, 0, 0)
 fv2.addPlayerTeam2("RWB", "Sam", "Adekugbe", 3, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/Adekugbe-Right.png")
 fv2.setTeam2PlayerStats(3, 0, "90 minutes", 0, 0, 0, 0, 0, 7, 0, 0, 0, 1)
 fv2.addPlayerTeam2("LCM", "Atiba", "Hutchinson", 13, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/Hutchinson-Right%20copy.png")
-fv2.setTeam2PlayerStats(13, 0, "90 minutes", 0, 0, 0, 0, 0, 7, 0, 0, 0, 0)
+fv2.setTeam2PlayerStats(13, 0, "90 minutes", 0, 0, 0, 0, 0, 7, 0, 2, 0, 0)
 fv2.addPlayerTeam2("RCM", "Stephen", "Eustaquio", 7, true, "https://www.canadasoccer.com/wp-content/uploads/csa_files/c6aa5b274131491b01f2add1d4cb55a4.jpg")
-fv2.setTeam2PlayerStats(7, 0, "90 minutes", 0, 0, 1, 0, 1.1, 7, 0, 0, 0, 0)
+fv2.setTeam2PlayerStats(7, 0, "90 minutes", 0, 0, 1, 0, 1.1, 7, 0, 0, 0, 1)
 fv2.addPlayerTeam2("LW", "Alphonso", "Davies", 19, true, "https://canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/Davies-Right%20copy.png")
-fv2.setTeam2PlayerStats(19, 1, "90 minutes", 0, 0, 2, 0, 0.9, 9, 0, 0, 0, 0)
+fv2.setTeam2PlayerStats(19, 1, "90 minutes", 0, 0, 2, 0, 0.9, 9, 0, 1, 0, 0)
 fv2.addPlayerTeam2("RW", "Tajon", "Buchanan", 11, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/MNT-Headshots/Tajon_Buchanan.jpg")
-fv2.setTeam2PlayerStats(11, 1, "90 minutes", 0, 0, 1, 0, 1.0, 8, 0, 2, 0, 1)
+fv2.setTeam2PlayerStats(11, 1, "90 minutes", 0, 0, 1, 0, 1.0, 8, 0, 2, 0, 0)
 fv2.addPlayerTeam2("CF", "Jonathan", "David", 20, true, "https://www.canadasoccer.com/wp-content/themes/betheme-child/assets/Imagery/Masked%20Photos/Masked%20profile%20photos/MNT/CANMNT-PNG/David-Right%20copy.png")
 fv2.setTeam2PlayerStats(20, 2, "90 minutes", 0, 0, 2, 0, 1.1, 10, 0, 2, 0, 0)
 
@@ -72,11 +72,18 @@ fv2.showPlayerStatsTeam1(10, false)
 fv2.showPlayerStatsTeam2(18, false)
 
 fv2.renderTeam1Yellow(11)
+fv2.renderTeam1Yellow(11)
 fv2.renderTeam1Red(11)
-fv2.renderTeam2Yellow(11)
-fv2.renderTeam2Red(11)
+fv2.renderTeam2Red(2)
+fv2.renderTeam2Yellow(7)
+
 fv2.renderTeam1Goal(11)
+fv2.renderTeam1Goal(10)
+fv2.renderTeam1Goal(7)
 fv2.renderTeam2Goal(20)
+fv2.renderTeam2Goal(20)
+fv2.renderTeam2Goal(19)
+fv2.renderTeam2Goal(11)
 
 console.log(fv2.getTeam1Players())
 console.log(fv2.getTeam2Players())
@@ -106,10 +113,10 @@ let players = [
     {firstName: "Giancarlo", lastName: "Smith", number: 12},
     {firstName: "Gianny", lastName: "Smith", number: 13},
     {firstName: "Gianni", lastName: "Smith", number: 14},
-    {firstName: "John", lastName: "Smith", number: 15},
-    {firstName: "John", lastName: "Smith", number: 16},
-    {firstName: "John", lastName: "Smith", number: 17},
-    {firstName: "John", lastName: "Smith", number: 18}
+    {firstName: "John-Paul", lastName: "Smith", number: 15},
+    {firstName: "Johnson", lastName: "Smithes", number: 16},
+    {firstName: "James", lastName: "Smitty", number: 17},
+    {firstName: "Smith", lastName: "John", number: 18}
 ]
 const teamDemo = document.createElement('div')
 teamDemo.style = "justify-content: center; display: flex;"
@@ -152,4 +159,4 @@ pitch3.id = "football pitch"
 pitch3.style = "justify-content: center; display: flex;"
 body.append(pitch3)
 
-fv3.drawPitch(false, "Sharks", "Eagles", 0, 0, "red", "yellow", false, pitch3)
+fv3.drawPitch(false, "Sharks", "Eagles", 0, 0, "yellow", "orange", false, pitch3)
